@@ -1,0 +1,13 @@
+START TRANSACTION;
+CREATE TABLE `UnconfirmedUser` (
+	`ID` INT AUTO_INCREMENT NOT NULL,
+	`Mail` VARCHAR ( 128 ) NOT NULL,
+	`NickName` VARCHAR ( 128 ) NOT NULL,
+	`ActiveCode` CHAR ( 64 ) NOT NULL,
+	`Salt` CHAR ( 64 ) NOT NULL,
+	`SaltPass` CHAR ( 64 ) NOT NULL,
+	`Time` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL ,
+	UNIQUE INDEX ( `Mail` ),
+	PRIMARY KEY ( `ID` ) 
+) ;
+COMMIT;

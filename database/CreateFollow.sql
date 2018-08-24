@@ -1,0 +1,12 @@
+START TRANSACTION;
+CREATE TABLE `Follow` (
+	`ID` INT AUTO_INCREMENT NOT NULL,
+	`UserID` INT NOT NULL,
+	`Following` INT NOT NULL,
+	`Time` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL ,
+    FOREIGN KEY (`UserID`) REFERENCES `User` (`ID`),
+    FOREIGN KEY (`Following`) REFERENCES `User` (`ID`),
+    UNIQUE INDEX (`UserID`, `Following`),
+	PRIMARY KEY ( `ID` ) 
+) ;
+COMMIT;
