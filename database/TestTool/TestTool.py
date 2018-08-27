@@ -33,10 +33,10 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
     textLib = open("文字素材.txt","r")
 
     def weiboNum():
-        """随机一个用户的微博数量,均值15，方差100，超过99%的数据会落在320-0"""
-        num = random.gauss(15,100)
+        """随机一个用户的微博数量,均值20，方差30，超过99%的数据会落在110-0"""
+        num = random.gauss(20,30)
         num = 2000 if num > 2000 else num
-        return abs(int(num)) if num > -50 else 0
+        return abs(int(num)) if num > -20 else 0
 
     def weiboType():
         """随机一个用户的微博种类，均值0，方差100，超过99%的数据会落在300~-300"""
@@ -60,8 +60,8 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
         return s
     
     def commentNum():
-        """随机一个用户的评论数量，均值5，方差200，超过99%的数据会落在620-0"""
-        num = random.gauss(5,200)
+        """随机一个微博的评论数量，均值5，方差20，超过99%的数据会落在65-0"""
+        num = random.gauss(5,20)
         num = 2000 if num > 2000 else num
         return abs(int(num)) if num > -20 else 0
 
