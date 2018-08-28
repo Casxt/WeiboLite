@@ -1,17 +1,14 @@
-START TRANSACTION;
-CREATE TABLE `Comment` (
-	`ID` INT AUTO_INCREMENT NOT NULL,
-	`UserID` INT NOT NULL,
-    `WeiboID` INT NOT NULL,
-    `CommentID` INT DEFAULT 0 NOT NULL,
-	`Comment` VARCHAR ( 128 ) NOT NULL,
-	`Time` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL ,
-    FOREIGN KEY (`UserID`) REFERENCES `User` (`ID`),
-    FOREIGN KEY (`WeiboID`) REFERENCES `Weibo` (`ID`),
-    /*FOREIGN KEY (`CommentID`) REFERENCES `Comment` (`ID`),*/
-    /*不知道能不能用上这个索引*/
-    INDEX (`WeiboID`, `Time`),
-    INDEX (`CommentID`),
-	PRIMARY KEY ( `ID` )
-) ;
-COMMIT;
+CREATE TABLE comment (
+	id BIGSERIAL PRIMARY KEY,
+	user_id BIGINT NOT NULL,
+    weibo_id BIGINT NOT NULL,
+    /*如果是其他评论的评论，才设置comment_id*/
+    comment_id BIGINT DEFAULT NULL,
+	comment VARCHAR ( 128 ) NOT NULL,
+    is_delete BOOL NOT NULL DEFAULT FALSE,
+	comment_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    
+    CONSTRAINT user_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT weibo_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.weibo (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT comment_id_foreign_key FOREIGN KEY (comment_id) REFERENCES public.comment (id) ON DELETE CASCADE ON UPDATE CASCADE
+);

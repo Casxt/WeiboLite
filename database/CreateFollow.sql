@@ -1,12 +1,11 @@
-START TRANSACTION;
-CREATE TABLE `Follow` (
-	`ID` INT AUTO_INCREMENT NOT NULL,
-	`UserID` INT NOT NULL,
-	`Following` INT NOT NULL,
-	`Time` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL ,
-    FOREIGN KEY (`UserID`) REFERENCES `User` (`ID`),
-    FOREIGN KEY (`Following`) REFERENCES `User` (`ID`),
-    UNIQUE INDEX (`UserID`, `Following`),
-	PRIMARY KEY ( `ID` ) 
+CREATE TABLE follow (
+	id BIGSERIAL PRIMARY KEY,
+	user_id INT8 NOT NULL,
+	follow INT8 NOT NULL,
+	follow_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL ,
+	is_delete BOOL NOT NULL DEFAULT FALSE,
+	CONSTRAINT user_follow_unique UNIQUE (user_id, follow),
+	CONSTRAINT user_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT follow_foreign_key FOREIGN KEY (follow) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
-COMMIT;
+CREATE UNIQUE INDEX user_follow_uindex ON public.follow (user_id, follow);

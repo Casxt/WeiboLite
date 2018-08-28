@@ -6,13 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fd08993-f95a-4048-8f7c-32a643ee96f7" name="Default Changelist" comment="ui截图">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/WeiboLite_war_exploded/static/css/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/WeiboLite_war_exploded/static/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/WeiboLite_war_exploded/static/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/微博.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/css/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/css/iconfont.css" afterDir="false" />
+    <list default="true" id="2fd08993-f95a-4048-8f7c-32a643ee96f7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/database/CrateUser.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/CrateUser.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CreateBaseAndUser.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/CreateBaseAndUser.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CreateComment.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/CreateComment.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CreateFollow.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/CreateFollow.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CreateImage.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/CreateImage.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +24,7 @@
     <session id="485040162">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -70,34 +69,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-              <folding>
-                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/static/css/iconfont.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -356,7 +332,7 @@
       <updated>1535360467150</updated>
       <workItem from="1535360468772" duration="555000" />
       <workItem from="1535427286074" duration="1304000" />
-      <workItem from="1535436247445" duration="7464000" />
+      <workItem from="1535436247445" duration="8289000" />
     </task>
     <task id="LOCAL-00001" summary="ui 设计">
       <created>1535360502965</created>
@@ -386,15 +362,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535442700209</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ui截图">
+      <created>1535444203214</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1535444203214</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9323000" />
+    <option name="totallyTimeSpent" value="10148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21239607" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -445,13 +427,6 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/WeiboLite_war_exploded/static/css/iconfont.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -459,10 +434,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/static/css/iconfont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
+        <state relative-caret-position="-304">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding>
             <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -471,10 +453,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/static/css/iconfont.css">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>

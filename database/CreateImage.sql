@@ -1,17 +1,13 @@
-START TRANSACTION;
-CREATE TABLE `Image` (
-	`ID` INT AUTO_INCREMENT NOT NULL,
-	`UserID` INT NOT NULL,
-	`ImgHash` CHAR ( 64 ) NOT NULL,
-    /*这个字段应该用不到
-	`ImgPath` TEXT NOT NULL,*/
-    `Height` INT UNSIGNED NOT NULL,
-    `Width` INT UNSIGNED NOT NULL,
-    `Size` INT UNSIGNED NOT NULL,
-    `Count` INT UNSIGNED DEFAULT 0 NULL,
-	`Time` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL ,
-    FOREIGN KEY (`UserID`) REFERENCES `User` (`ID`),
-    UNIQUE INDEX (`UserID`, `ImgHash`),
-	PRIMARY KEY ( `ID` ) 
+CREATE TABLE image (
+	id BIGSERIAL PRIMARY KEY,
+	user_id INT8 NOT NULL,
+	img_hash CHAR ( 64 ) NOT NULL,
+    height INT4 NOT NULL CONSTRAINT positive_height CHECK (height > 0),
+    width INT4 NOT NULL CONSTRAINT positive_width CHECK (width > 0),
+    size INT4 NOT NULL CONSTRAINT positive_size CHECK (size > 0),
+    usage_count INT4 DEFAULT 0 NULL,
+    is_delete BOOL NOT NULL DEFAULT FALSE,
+	image_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
-COMMIT;
+CREATE UNIQUE INDEX user_img_uindex ON public.image (user_id,img_hash);
