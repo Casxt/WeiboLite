@@ -8,8 +8,10 @@ CREATE TABLE `Comment` (
 	`Time` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL ,
     FOREIGN KEY (`UserID`) REFERENCES `User` (`ID`),
     FOREIGN KEY (`WeiboID`) REFERENCES `Weibo` (`ID`),
+    /*FOREIGN KEY (`CommentID`) REFERENCES `Comment` (`ID`),*/
     /*不知道能不能用上这个索引*/
     INDEX (`WeiboID`, `Time`),
-	PRIMARY KEY ( `ID` ) 
+    INDEX (`CommentID`),
+	PRIMARY KEY ( `ID` )
 ) ;
 COMMIT;
