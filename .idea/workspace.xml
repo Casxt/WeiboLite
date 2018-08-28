@@ -6,9 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fd08993-f95a-4048-8f7c-32a643ee96f7" name="Default Changelist" comment="ui 设计">
-      <change beforePath="$PROJECT_DIR$/.idea/WeiboLite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WeiboLite.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2fd08993-f95a-4048-8f7c-32a643ee96f7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,13 +42,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="txt" value="5" />
+          <entry key="txt" value="16" />
           <entry key="xml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="PLAIN_TEXT" value="16" />
           <entry key="XML" value="11" />
         </counts>
       </usages-collector>
@@ -91,6 +89,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -242,7 +247,7 @@
       <option name="presentableId" value="Default" />
       <updated>1535360467150</updated>
       <workItem from="1535360468772" duration="555000" />
-      <workItem from="1535427286074" duration="726000" />
+      <workItem from="1535427286074" duration="1304000" />
     </task>
     <task id="LOCAL-00001" summary="ui 设计">
       <created>1535360502965</created>
@@ -258,11 +263,18 @@
       <option name="project" value="LOCAL" />
       <updated>1535360726643</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="引入tomcat">
+      <created>1535428049216</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535428049217</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1281000" />
+    <option name="totallyTimeSpent" value="1859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
@@ -303,7 +315,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ui 设计" />
-    <option name="LAST_COMMIT_MESSAGE" value="ui 设计" />
+    <MESSAGE value="引入tomcat" />
+    <option name="LAST_COMMIT_MESSAGE" value="引入tomcat" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/ui.iml">
