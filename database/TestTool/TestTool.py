@@ -1,22 +1,22 @@
-import pymysql
+import psycopg2
 
 ####################################
 #
 #生成随机数据
 #
 ####################################
-def initRandomUser(conn=None, cursor=None):
+def initRandomUser(num=5000, conn=None, cursor=None):
     """创建测试用户5000个"""
 
     #存储已经随即出来的用户ID
     userList = list()
 
     conn,cursor,selfConn = SqlOpen(conn, cursor)
-    sql = """INSERT INTO `User` ( Mail, NickName, Introduction, ProfilePic, Salt, SaltPass ) VALUES (%s,%s,%s,%s,%s,%s)"""
-    for i in range(1,5001):
+    sql = """INSERT INTO profile ( mail, nickname, introduction, profile_picture, salt, salt_pass ) VALUES (%s,%s,%s,%s,%s,%s) RETURNING id"""
+    for i in range(1,num+1):
         print(f"{i} User Inserted") if i%20==0 else None
         cursor.execute(sql, (f"TestUser-{i}@casxt.com", f"TestUser-{i}", f"Introduction", "ProfilePic", "Salt", "SaltPass"))
-        userList.append(cursor.lastrowid)
+        userList.append(cursor.fetchone()[0])
     SqlClose(conn,cursor,selfConn)
 
     return userList
@@ -30,7 +30,7 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
     #存储已随机出来的评论ID
     commentList = list()
     
-    textLib = open("文字素材.txt","r")
+    textLib = open("文字素材.txt", "r", encoding='UTF-8')
 
     def weiboNum():
         """随机一个用户的微博数量,均值20，方差30，超过99%的数据会落在110-0"""
@@ -57,7 +57,7 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
             s = "e1a45669df923f6f1b0de326cfc456399019a96373f5912e8cdce5f6291c0a0e"
             for i in range (0,r-1):
                 s = s + ",e1a45669df923f6f1b0de326cfc456399019a96373f5912e8cdce5f6291c0a0e"
-        return s
+        return "{%s}"%(s)
     
     def commentNum():
         """随机一个微博的评论数量，均值5，方差20，超过99%的数据会落在65-0"""
@@ -70,8 +70,8 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
         return textLib.read(random.randint(10,128))
 
     conn,cursor,selfConn = SqlOpen(conn, cursor)
-    weiboSql = """INSERT INTO `Weibo` ( UserID, Content, Images, ForwardType, Forward ) VALUES (%s,%s,%s,%s,%s)"""
-    wcommentSql = """INSERT INTO `Comment` ( UserID, WeiboID, Comment ) VALUES (%s,%s,%s)"""
+    weiboSql = """INSERT INTO weibo ( user_id, content, images, forward_type, forward ) VALUES (%s,%s,%s,%s,%s) RETURNING id"""
+    wcommentSql = """INSERT INTO comment ( user_id, weibo_id, comment ) VALUES (%s,%s,%s) RETURNING id"""
 
     for user in UsersID:
         cursor = conn.cursor()
@@ -82,7 +82,7 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
         for i in range(0, wNum):
             forwardType, forward = weiboType()
             cursor.execute(weiboSql, (str(user), getContent(), weiboImg(), forwardType, forward))
-            wid = cursor.lastrowid
+            wid = cursor.fetchone()[0]
             weiboList.append(wid)
             #创建评论
             cNum = commentNum()
@@ -103,12 +103,12 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
 ####################################      
 def SqlOpen(conn = None,cursor = None):
     if conn is None:
-        conn = pymysql.connect(**{'host':'154.8.227.154',#默认127.0.0.1
-        'user':'WeiboLite',
-        'password':'9XqgEjaRsgp6F8k&g_.8',
-        'port':3306,#默认即为3306
-        'database':'WeiboLite',
-        'charset':'UTF8MB4'#默认即为utf8
+        conn = psycopg2.connect(**
+        {'host':'localhost',#默认127.0.0.1
+        'user':'postgres',
+        'password':'753951Qwe',
+        'port':5432,#默认即为3306
+        'dbname':'WeiboLite',
         })
         cursor = conn.cursor()
         return conn,cursor,True

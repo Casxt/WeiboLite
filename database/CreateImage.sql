@@ -8,6 +8,6 @@ CREATE TABLE image (
     usage_count INT4 DEFAULT 0 NULL,
     is_delete BOOL NOT NULL DEFAULT FALSE,
 	image_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT user_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
 CREATE UNIQUE INDEX user_img_uindex ON public.image (user_id,img_hash);

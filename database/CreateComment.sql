@@ -9,6 +9,6 @@ CREATE TABLE comment (
 	comment_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     
     CONSTRAINT user_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT weibo_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.weibo (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT weibo_id_foreign_key FOREIGN KEY (weibo_id) REFERENCES public.weibo (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT comment_id_foreign_key FOREIGN KEY (comment_id) REFERENCES public.comment (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
