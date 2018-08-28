@@ -1,3 +1,3 @@
 import TestTool
-#Users = TestTool.initRandomUser()
-TestTool.initRandomWeibo(list(range(5004,10004)))
+Users = TestTool.initRandomUser()
+TestTool.initRandomWeibo(Users)

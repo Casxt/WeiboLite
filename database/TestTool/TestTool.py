@@ -103,10 +103,10 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
 ####################################      
 def SqlOpen(conn = None,cursor = None):
     if conn is None:
-        conn = pymysql.connect(**{'host':'cdb-r1uqsht6.bj.tencentcdb.com',#默认127.0.0.1
+        conn = pymysql.connect(**{'host':'154.8.227.154',#默认127.0.0.1
         'user':'WeiboLite',
-        'password':'XfwVT7k5t82L',
-        'port':10011,#默认即为3306
+        'password':'9XqgEjaRsgp6F8k&g_.8',
+        'port':3306,#默认即为3306
         'database':'WeiboLite',
         'charset':'UTF8MB4'#默认即为utf8
         })
