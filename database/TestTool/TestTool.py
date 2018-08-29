@@ -91,7 +91,7 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
             weiboList.append(wid)
             #创建评论
             cNum = commentNum()
-            print(f"Create {cNum} Comment of Weibo-{wid} of {user}")
+            print(f"Create {cNum} Comment of Weibo-{wid} of User {user}")
             for i in range(0, cNum):
                 cursor.execute(wcommentSql, (UsersID[random.randint(0,len(UsersID)-1)], wid, getContent()))
 
