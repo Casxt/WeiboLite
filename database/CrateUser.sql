@@ -9,5 +9,5 @@ CREATE TABLE profile(
 	is_delete BOOL NOT NULL DEFAULT FALSE,
 	profile_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL 
 );
-CREATE UNIQUE INDEX mail_uindex ON public.profile (mail);
-CREATE UNIQUE INDEX nickname_uindex ON public.profile (nickname);
+CREATE UNIQUE INDEX profile_mail_uindex ON public.profile (mail);
+CREATE UNIQUE INDEX profile_nickname_uindex ON public.profile (nickname);

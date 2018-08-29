@@ -12,3 +12,15 @@ CREATE TABLE comment (
     CONSTRAINT weibo_id_foreign_key FOREIGN KEY (weibo_id) REFERENCES public.weibo (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT comment_id_foreign_key FOREIGN KEY (comment_id) REFERENCES public.comment (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+CREATE INDEX comment_comment_id_hindex ON public.comment USING hash (
+  comment_id
+);
+
+CREATE INDEX comment_weibo_id_hindex ON public.comment USING hash (
+  weibo_id
+);
+
+CREATE INDEX comment_user_id_hindex ON public.comment USING hash (
+  user_id
+);

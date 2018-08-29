@@ -7,4 +7,4 @@ CREATE TABLE reset_password (
 	reset_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
-CREATE UNIQUE INDEX user_reset_code_uindex ON public.reset_password (user_id, reset_code);
+CREATE UNIQUE INDEX reset_password_user_id_reset_code_uindex ON public.reset_password (user_id, reset_code);

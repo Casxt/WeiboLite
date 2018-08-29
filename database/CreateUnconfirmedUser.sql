@@ -8,4 +8,4 @@ CREATE TABLE unconfirmed_user (
 	is_delete BOOL NOT NULL DEFAULT FALSE,
 	sign_up_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
-CREATE UNIQUE INDEX mail_active_code_uindex ON public.unconfirmed_user (mail, active_code);
+CREATE UNIQUE INDEX unconfirmed_user_mail_active_code_uindex ON public.unconfirmed_user (mail, active_code);
