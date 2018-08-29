@@ -33,23 +33,23 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
     textLib = open("文字素材.txt", "r", encoding='UTF-8')
 
     def weiboNum():
-        """随机一个用户的微博数量,均值20，方差30，超过99%的数据会落在110-0"""
+        """随机一个用户的微博数量,均值20，方差30^2，超过99%的数据会落在110-0"""
         num = random.gauss(20,30)
         num = 2000 if num > 2000 else num
         return abs(int(num)) if num > -20 else 0
 
     def weiboType():
-        """随机一个用户的微博种类，均值0，方差100，超过99%的数据会落在300~-300"""
-        num = random.gauss(0,100)
-        if 100 > abs(num) >= 0 or len(weiboList) == 0 or len(commentList) == 0:
+        """随机一个用户的微博种类，均值0，方差100^2，超过99%的数据会落在300~-300"""
+        num = random.randint(1,9)
+        if 1 <= num < 7 or len(weiboList) == 0 or len(commentList) == 0:
             return "NoForward", None
-        elif 200 > abs(num) >= 100:
+        elif num == 8:
             return "Weibo", weiboList[random.randint(0,len(weiboList)-1)]
         else:
             return "Comment", commentList[random.randint(0,len(commentList)-1)]
 
     def weiboImg():
-        """随机一个用户的微博图片数量，均值0，方差3"""
+        """随机一个用户的微博图片数量，均值0，方差3^2"""
         s = ""
         r = abs(int(random.gauss(0,3)))
         r = r if r <= 9 else 9
@@ -60,10 +60,11 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
         return "{%s}"%(s)
     
     def commentNum():
-        """随机一个微博的评论数量，均值5，方差20，超过99%的数据会落在65-0"""
-        num = random.gauss(5,20)
-        num = 2000 if num > 2000 else num
-        return abs(int(num)) if num > -20 else 0
+        """随机一个微博的评论数量，采用伽马分布，均值25，方差20^2*1.25"""
+        #num = random.gauss(5,20)
+        #num = 2000 if num > 2000 else num
+        #return abs(int(num)) if num > -50 else 0
+        return int(round(random.gammavariate(1.25,20)))
 
     def getContent():
         """随机获取一些文字"""
