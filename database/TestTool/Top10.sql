@@ -1,0 +1,1 @@
+SELECT "weibo_id" ,COUNT(*) AS "count" FROM "comment" GROUP BY "weibo_id" ORDER BY "count" DESC LIMIT 10;

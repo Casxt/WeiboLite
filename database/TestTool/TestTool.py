@@ -67,7 +67,11 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
 
     def getContent():
         """随机获取一些文字"""
-        return textLib.read(random.randint(10,128))
+        s = textLib.read(random.randint(10,128))
+        if s is None or len(s) == 0:
+            textLib.seek(0,0)
+            s = textLib.read(random.randint(10,128))
+        return s
 
     conn,cursor,selfConn = SqlOpen(conn, cursor)
     weiboSql = """INSERT INTO weibo ( user_id, content, images, forward_type, forward ) VALUES (%s,%s,%s,%s,%s) RETURNING id"""
