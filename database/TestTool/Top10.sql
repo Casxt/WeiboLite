@@ -9,3 +9,5 @@ CREATE INDEX "weibo_comment_count_index" ON "public"."weibo2" USING hash (
   "comment_count"
 );
 
+SELECT id, comment_count FROM weibo2 ORDER BY comment_count DESC LIMIT 10;
+
