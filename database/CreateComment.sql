@@ -13,14 +13,6 @@ CREATE TABLE comment (
     CONSTRAINT comment_id_foreign_key FOREIGN KEY (comment_id) REFERENCES public.comment (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE INDEX comment_comment_id_hindex ON public.comment USING hash (
-  comment_id
-);
-
-CREATE INDEX comment_weibo_id_hindex ON public.comment USING hash (
-  weibo_id
-);
-
-CREATE INDEX comment_user_id_hindex ON public.comment USING hash (
-  user_id
-);
+CREATE INDEX comment_comment_id_hindex ON PUBLIC.COMMENT USING hash ( comment_id );
+CREATE INDEX comment_weibo_id_hindex ON PUBLIC.COMMENT USING hash ( weibo_id );
+CREATE INDEX comment_user_id_hindex ON PUBLIC.COMMENT USING hash ( user_id );

@@ -13,11 +13,8 @@ CREATE TABLE weibo (
     CONSTRAINT user_id_foreign_key FOREIGN KEY (user_id) REFERENCES public.profile (id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
 
-CREATE INDEX weibo_forward_index ON public.weibo (forward_type, forward);
-
-CREATE INDEX weibo_comment_user_id_hindex ON public.comment USING hash (
-  user_id
-);
+CREATE INDEX weibo_forward_index ON PUBLIC.weibo ( forward_type, FORWARD );
+CREATE INDEX weibo_comment_user_id_hindex ON PUBLIC.weibo USING hash ( user_id );
 /*
 查询优化 ：
 https://www.cnblogs.com/tangyanbo/p/6378741.html
