@@ -40,8 +40,8 @@
                 <div class="media-body">
                     <h5 class="mt-0 mr-auto">张楷</h5>
                     <p class="my-0">这是一条微博，这是一条微博这是一条微博，这是一条微博，这是一条微博，这是一条微博，这是一条微博
-                    这是一条微博</p>
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                        这是一条微博</p>
+                    <small class="text-muted">Last updated 5 mins ago</small>
                 </div>
             </div>
             <div class="btn-group btn-group-toggle mt-0 float-right" data-toggle="buttons">
@@ -73,7 +73,7 @@
                 <!-- 评论 -->
                 <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
                     <div class="media-body">
-                        <h6 class="mt-0">
+                        <h6 class="my-0">
                             评论者1
                             <div class="btn-group mt-0" data-toggle="buttons">
                                 <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
@@ -86,8 +86,11 @@
                                     <i class="iconfont icon-guanbi"></i>
                                 </button>
                             </div>
+
                         </h6>
-                        <small>一条评论，一条评论，一条评论一条评论，一条评论</small>
+                        <small>一条评论，一条评论，一条评论一条评论，一条评论,一条评论，一条评论，一条评论一条评论，一条评论
+                            一条评论，一条评论，一条评论一条评论，一条评论一条评论，一条评论，一条评论一条评论，一条评论一条评论，一条评论，一条评论一条评论，一条评论一条评论，一条评论，一条评论一条评论，一条评论</small>
+                        <small class="float-right"><small class="text-muted">Last updated 5 mins ago</small></small>
                     </div>
                 </div>
                 <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
@@ -107,6 +110,7 @@
                             </div>
                         </h6>
                         <small>对 <kbd>评论1</kbd> 说: 一条评论，一条评论，一条评论一条评论，一条评论</small>
+                        <small class="float-right"><small class="text-muted">Last updated 5 mins ago</small></small>
                     </div>
                 </div>
                 <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
@@ -148,6 +152,7 @@
                             </div>
                         </h6>
                         <small>一条转发，一条转发，一条转发一条转发一条转发一条转发</small>
+                        <small class="float-right"><small class="text-muted">Last updated 5 mins ago</small></small>
                     </div>
                 </div>
                 <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
