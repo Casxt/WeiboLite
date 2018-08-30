@@ -2,10 +2,10 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html lang="en">
 <head>
-
     <title>Title</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" type="text/css" href="/static/css/iconfont.css">
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,6 +40,25 @@
     </div>
 </nav>
 <main class="container w-50 mt-4">
+
+    <!--微博发布栏-->
+    <div class="shadow card p-1 mb-3 bg-light rounded-0">
+        <div class="card-body p-2">
+            <div class="media-body">
+                <textarea class="form-control mb-2 rounded-0"></textarea>
+
+                <button class="btn btn-primary rounded-0 float-right" id="AddSlice-Button" type="button">发布</button>
+                <label class="btn btn-primary rounded-0 my-auto float-right mx-2" for="images">上传图片</label>
+                <input name="imgs" type="file" id="images" accept="image/png, image/jpeg" multiple onchange="preview(this)" style="display: none;">
+
+                <div class="container mt-5 mb-3" id="preview">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!--微博-->
     <div class="shadow card p-1 mb-3 bg-light rounded-0">
         <div class="card-body p-2">
@@ -643,7 +662,27 @@
 </div>
 
 <script type="text/javascript">
-    $(".review-typeSelect").button('toggle')
+    async function preview(file) {
+        if (file.files.length > 9) {
+            //TODO: 完善提醒
+            alert("Too much img! max 9 imgs in one time");
+            return;
+        }
+        const prevDiv = document.getElementById('preview');
+        prevDiv.innerHTML = "";
+        let count = 0;
+        let reader = new FileReader();
+        reader.onload = function (evt) {
+            prevDiv.innerHTML += '<img src="' + evt.target.result +
+                '" class="rounded-0 md-2 mt-2 ml-3 img-thumbnail w-25" />'; //w-25, style="width:100%"
+        }
+        reader.onloadend = function () {
+            if (++count < file.files.length) {
+                reader.readAsDataURL(file.files[count]);
+            }
+        }
+        reader.readAsDataURL(file.files[count]);
+    }
 </script>
 <script src="/static/js/jquery-3.3.1.min.js"></script>
 <script src="/static/js/bootstrap.bundle.min.js"></script>

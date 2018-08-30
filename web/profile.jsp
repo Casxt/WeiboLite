@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" type="text/css" href="/static/css/iconfont.css">
+    <!--This Style work for Line Page-->
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
