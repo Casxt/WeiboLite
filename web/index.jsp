@@ -15,9 +15,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="搜索用户或微博">
-        </form>
+
+        <div class="input-group mb-3 w-auto my-auto">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary dropdown-toggle text-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">微博</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">微博</a>
+                    <a class="dropdown-item" href="#">用户</a>
+                </div>
+            </div>
+            <input type="text" class="form-control" placeholder="搜索">
+        </div>
+
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="#">热门微博</a>
@@ -621,6 +630,18 @@
         </div>
     </div>
 </main>
+
+<!--用户信息展示modal-->
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog rounded-0" role="document">
+
+                <h5>张楷</h5>
+                <p>北京邮电大学学生</p>
+                <button type="button" class="btn btn-primary rounded-0" onclick="this.innerHTML='取消关注';">关注</button>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(".review-typeSelect").button('toggle')
 </script>
