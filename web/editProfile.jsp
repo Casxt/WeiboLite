@@ -42,7 +42,7 @@
 <main class="container mt-4">
     <div class="row">
         <div class="col-3">
-            <div class="nav flex-column nav-pills shadow rounded-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <div class="nav flex-column bg-light nav-pills shadow rounded-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active rounded-0" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">基本信息</a>
                 <a class="nav-link rounded-0" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">我的账户</a>
                 <a class="nav-link rounded-0" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">统计信息</a>
