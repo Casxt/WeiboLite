@@ -41,7 +41,8 @@
                 </div>
 
                 <button type="button" class="btn btn-outline-success rounded-0" onclick="showSignUpForm();">注册</button>
-                <button id="SignIn-SignInButton" type="submit" class="btn btn-primary rounded-0 float-right">登陆</button>
+                <button id="SignIn-ResetPassword" type="button" class="btn btn-secondary rounded-0" data-toggle="tooltip" data-placement="top" title="为您设置一个新密码并发到您的邮箱" hidden="hidden">重置密码</button>
+                <button id="SignIn-SignInButton" type="button" class="btn btn-primary rounded-0 float-right" onclick="document.getElementById('SignIn-ResetPassword').removeAttribute('hidden');this.innerHTML='密码错误';">登陆</button>
             </form>
             <form id="signUp-Form" hidden="hidden">
                 <div class="form-group">
