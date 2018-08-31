@@ -75,7 +75,7 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
         return s
 
     conn,cursor,selfConn = SqlOpen(conn, cursor)
-    weiboSql = """INSERT INTO weibo ( user_id, content, images, forward_type, forward ) VALUES (%s,%s,%s,%s,%s) RETURNING id"""
+    weiboSql = """INSERT INTO weibo ( user_id, content, forward_type, forward ) VALUES (%s,%s,%s,%s,%s) RETURNING id"""
     wcommentSql = """INSERT INTO comment ( user_id, weibo_id, comment ) VALUES (%s,%s,%s) RETURNING id"""
 
     for user in UsersID:
@@ -86,7 +86,7 @@ def initRandomWeibo(UsersID, conn=None, cursor=None):
         print(f"Create {wNum} Weibo of {user}")
         for i in range(0, wNum):
             forwardType, forward = weiboType()
-            cursor.execute(weiboSql, (str(user), getContent(), weiboImg(), forwardType, forward))
+            cursor.execute(weiboSql, (str(user), getContent(), forwardType, forward))
             wid = cursor.fetchone()[0]
             weiboList.append(wid)
             #创建评论
