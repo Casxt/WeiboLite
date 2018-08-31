@@ -20,8 +20,8 @@
             <div class="input-group-prepend">
                 <button class="btn btn-outline-secondary dropdown-toggle text-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">微博</button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">微博</a>
-                    <a class="dropdown-item" href="#">用户</a>
+                    <a class="dropdown-item" href="/serachWeibo.jsp">微博</a>
+                    <a class="dropdown-item" href="/serachUser.jsp">用户</a>
                 </div>
             </div>
             <input type="text" class="form-control" placeholder="搜索">
@@ -29,14 +29,14 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">热门微博</a>
+                <a class="nav-link" href="/searchWeibo.jsp">热门微博</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">我的主页</a>
+                <a class="nav-link" href="/searchUser.jsp">推荐用户</a>
             </li>
         </ul>
-        <a class="btn btn-outline-success text-white mr-2" href="#">张楷</a>
-        <a class="btn btn-outline-info text-white" href="#">我的消息 <span class="badge badge-info">9</span></a>
+        <a class="btn btn-outline-success text-white mr-2" href="/profile.jsp">张楷</a>
+        <a class="btn btn-outline-info text-white" href="/index.jsp">主页 <span class="badge badge-info">9</span></a>
     </div>
 </nav>
 <main class="container w-50 mt-4">
@@ -431,6 +431,144 @@
                 </div>
             </div>
             <div class="collapse mt-5 pl-5" id="ForwardField3">
+                <!-- 转发框 -->
+                <div class="media">
+                    <div class="media-body container px-0">
+                        <form class="form-inline m-0 container px-0">
+                            <div class="form-group input-group-sm w-75">
+                                <input type="text" class="form-control w-100 ml-0 rounded-0"
+                                       placeholder="转发">
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary mx-1 rounded-0">转发</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="media mt-3 pb-1 border-bottom border-dark">
+                    <div class="media-body">
+                        <h6 class="mt-0">
+                            转发者1
+                            <div class="btn-group mt-0" data-toggle="buttons">
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-pinglun"></i>
+                                </button>
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-zhuanfa"></i>
+                                </button>
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-guanbi"></i>
+                                </button>
+                            </div>
+                        </h6>
+                        <small>一条转发，一条转发，一条转发一条转发一条转发一条转发</small>
+                    </div>
+                </div>
+                <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-outline-secondary rounded-0">1</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0">2</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0">3</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0">4</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--评论-->
+    <div class="shadow card p-1 mb-3 bg-light rounded-0">
+        <div class="card-body p-2">
+            <div class="media pb-3 border-bottom border-dark">
+                <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
+                     style="width: 64px; height: 64px;" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 mr-auto">张楷 <small>评论了</small></h5>
+                    这是一条评论，这是一条评论这是一条评论这是一条评论，这是一条评论这是一条评论这是一条评论这是一条评论这是一条评论这是一条评论
+                    <!--转发源-->
+                    <div class="media mt-1 p-2" style="background-color: #e7e9ea;">
+                        <div class="media-body">
+                            <h6 class="mt-0">张楷 的评论:</h6>
+                            <p class="my-0"><small>这是一条评论，这是一条评论，这是一条评论，这是一条评论，这是一条评论，这是一条评论，</small></p>
+                            <small><small class="text-muted">Last updated 10 mins ago</small></small>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last updated 5 mins ago</small>
+                </div>
+            </div>
+            <div class="btn-group btn-group-toggle mt-0 float-right" data-toggle="buttons">
+                <button class="btn btn-secondary btn-sm text-light rounded-0" type="button" data-toggle="collapse"
+                        href="#CommentField3" aria-expanded="false" aria-controls="CommentField5">
+                    <!--评论--><i class="iconfont icon-pinglun"></i>
+                </button>
+                <button class="btn btn-secondary btn-sm text-light rounded-0" type="button" data-toggle="collapse"
+                        href="#ForwardField3" aria-expanded="false" aria-controls="ForwardField5">
+                    <!--转发--><i class="iconfont icon-zhuanfa"></i>
+                </button>
+                <a class="btn btn-sm btn-secondary text-light rounded-0">
+                    <!--删除--><i class="iconfont icon-guanbi"></i>
+                </a>
+            </div>
+            <div class="collapse mt-5 pl-5" id="CommentField5">
+                <!-- 评论框 -->
+                <div class="media">
+                    <div class="media-body container px-0">
+                        <form class="form-inline m-0 container px-0">
+                            <div class="form-group input-group-sm w-75">
+                                <input type="text" class="form-control w-100 ml-0 rounded-0"
+                                       placeholder="评论">
+                            </div>
+                            <button type="button" class="btn btn-sm btn-primary mx-1 rounded-0">评论</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- 评论 -->
+                <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
+                    <div class="media-body">
+                        <h6 class="mt-0">
+                            评论者1
+                            <div class="btn-group mt-0" data-toggle="buttons">
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-pinglun"></i>
+                                </button>
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-zhuanfa"></i>
+                                </button>
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-guanbi"></i>
+                                </button>
+                            </div>
+                        </h6>
+                        <small>一条评论，一条评论，一条评论一条评论，一条评论</small>
+                    </div>
+                </div>
+                <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
+                    <div class="media-body">
+                        <h6 class="mt-0">
+                            评论者2
+                            <div class="btn-group mt-0" data-toggle="buttons">
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-pinglun"></i>
+                                </button>
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-zhuanfa"></i>
+                                </button>
+                                <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
+                                    <i class="iconfont icon-guanbi"></i>
+                                </button>
+                            </div>
+                        </h6>
+                        <small>对 <kbd>评论1</kbd> 说: 一条评论，一条评论，一条评论一条评论，一条评论</small>
+                    </div>
+                </div>
+                <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
+                    <div class="btn-group btn-group-sm" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-outline-secondary rounded-0">1</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0">2</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0">3</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-0">4</button>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse mt-5 pl-5" id="ForwardField5">
                 <!-- 转发框 -->
                 <div class="media">
                     <div class="media-body container px-0">
