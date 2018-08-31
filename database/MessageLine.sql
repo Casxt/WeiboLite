@@ -21,8 +21,8 @@ SELECT
     com.comment_date
 FROM
     (((comment AS com LEFT JOIN comment AS com2 ON com.comment_id = com2.id) 
-    LEFT JOIN profile AS pro ON com.user_id = pro.ID)
-    LEFT JOIN profile AS pro2 ON com2.user_id = pro2.ID)
+    LEFT JOIN profile AS pro ON com.user_id = pro.id)
+    LEFT JOIN profile AS pro2 ON com2.user_id = pro2.id)
 	 WHERE com.weibo_id=1080 AND com.is_dalete=FALSE;
 
 
