@@ -11,7 +11,7 @@ WHERE
 	AND nickname =? 
 	AND active_code =? 
 RETURNING id, sign_up_date;
---若 id 不是 null 且 sign_up_date 未过期
+--若 id 不是 null 且 sign_up_date 未过期， 将用户信息转移到profile表中
 INSERT INTO profile ( mail, nickname, salt, salt_pass ) SELECT
 mail,
 nanicknameme,
@@ -20,4 +20,4 @@ salt_pass
 FROM
 	unconfirmed_user 
 WHERE
-	unconfirmed_user.ID =?;
+	unconfirmed_user.id =?;
