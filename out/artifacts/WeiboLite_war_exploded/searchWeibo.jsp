@@ -41,7 +41,7 @@
         <a class="btn btn-outline-info text-white" href="#">我的消息 <span class="badge badge-info">9</span></a>
     </div>
 </nav>
-<main class="container mt-4 w-50">
+<main class="container mt-4 mb-4 w-50">
     <h2>搜索结果</h2>
     <!--微博-->
     <div class="shadow card p-1 mb-3 bg-light rounded-0">
@@ -632,6 +632,14 @@
             </div>
         </div>
     </div>
+    <nav aria-label="Page navigation mb-4">
+        <div class="btn-group pagination justify-content-center" role="group" aria-label="First group">
+            <button type="button" class="btn btn-outline-secondary rounded-0">1</button>
+            <button type="button" class="btn btn-outline-secondary rounded-0">2</button>
+            <button type="button" class="btn btn-outline-secondary rounded-0">3</button>
+            <button type="button" class="btn btn-outline-secondary rounded-0">4</button>
+        </div>
+    </nav>
 </main>
 <script type="application/javascript">
 
