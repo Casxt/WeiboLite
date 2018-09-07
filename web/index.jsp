@@ -29,7 +29,7 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/searchWeibo.jsp">热门微博</a>
+                <a class="nav-link" href="/hotWeibo.jsp">热门微博</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/searchUser.jsp">推荐用户</a>
