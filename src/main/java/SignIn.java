@@ -22,7 +22,7 @@ public class SignIn extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        SignUpRequestField jsonReq = JsonTool.fetch(req, SignUpRequestField.class);
+        SignInRequestField jsonReq = JsonTool.fetch(req, SignInRequestField.class);
         ResponseField jsonRes;
 
         if (!jsonReq.Vaild()) {

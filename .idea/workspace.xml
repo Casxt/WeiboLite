@@ -7,12 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ResponseField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sign.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -151,7 +147,7 @@
           <entry key="js" value="18" />
           <entry key="jsp" value="683" />
           <entry key="sql" value="22" />
-          <entry key="txt" value="120" />
+          <entry key="txt" value="127" />
           <entry key="xml" value="35" />
         </counts>
       </usages-collector>
@@ -161,7 +157,7 @@
           <entry key="JAVA" value="2651" />
           <entry key="JSP" value="683" />
           <entry key="JavaScript" value="18" />
-          <entry key="PLAIN_TEXT" value="120" />
+          <entry key="PLAIN_TEXT" value="127" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="21" />
           <entry key="XML" value="35" />
@@ -183,11 +179,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SignIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+            <state relative-caret-position="155">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -195,10 +191,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-1140">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -550,9 +546,9 @@
         <option value="$PROJECT_DIR$/database/WeiboLiteSimplify/CreateWeibo.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_1.sql" />
         <option value="$PROJECT_DIR$/src/main/java/ResponseField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/sign.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/SignUp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SignIn.java" />
       </list>
     </option>
   </component>
@@ -784,7 +780,7 @@
       <updated>1536413859464</updated>
       <workItem from="1536413870908" duration="610000" />
       <workItem from="1536414508650" duration="2018000" />
-      <workItem from="1536548783445" duration="32115000" />
+      <workItem from="1536548783445" duration="32199000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -849,11 +845,25 @@
       <option name="project" value="LOCAL" />
       <updated>1536588485904</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="完善注册">
+      <created>1536595970887</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1536595970887</updated>
+    </task>
+    <task id="LOCAL-00011" summary="登陆">
+      <created>1536595980799</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1536595980799</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34743000" />
+    <option name="totallyTimeSpent" value="34827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
@@ -870,7 +880,7 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49962208" weight="0.32934928" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4988662" weight="0.4687915" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49811035" weight="0.3997344" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49811035" visible="true" weight="0.3997344" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -878,7 +888,7 @@
       <window_info anchor="bottom" id="Application Servers" order="9" weight="0.32934928" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50188965" side_tool="true" weight="0.3997344" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32934928" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32934928" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32934928" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32934928" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.32934928" />
@@ -920,7 +930,9 @@
     <MESSAGE value="引入数据库" />
     <MESSAGE value="优化数据库" />
     <MESSAGE value="修复autocommit导致的重复commit问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复autocommit导致的重复commit问题" />
+    <MESSAGE value="完善注册" />
+    <MESSAGE value="登陆" />
+    <option name="LAST_COMMIT_MESSAGE" value="登陆" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1242,16 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SignIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ResponseField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1268,7 +1270,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-1140">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
