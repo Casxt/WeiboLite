@@ -31,15 +31,14 @@ public class SignUp extends HttpServlet {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
             Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO profile(mail,nickname,salt,salt_pass) VALUES (?,?,?,?);");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO public.user (mail,nickname,salt,salt_pass) VALUES (?,?,?,?);");
             //Statement statement = con.createStatement();
             //ResultSet rs = statement.executeQuery("INSERT INTO profile(mail,nickname,salt,salt_pass) VALUES (?,?,?,?);");
-            stmt.setString(1, jsonReq.Nickname);
+            stmt.setString(1, String.format("%s@qq.com", jsonReq.Nickname));
             stmt.setString(2, jsonReq.Nickname);
             stmt.setString(3, salt);
             stmt.setString(4, saltPass);
             stmt.executeUpdate();
-            conn.commit();
             conn.close();
             jsonRes = new ResponseFiled("Success", "注册成功");
         } catch (SQLException e) {
@@ -48,11 +47,11 @@ public class SignUp extends HttpServlet {
                     jsonRes = new ResponseFiled("Failed", "用户名重复");
                     break;
                 default:
-                    jsonRes = new ResponseFiled("Failed", "SignUp Unknown Error");
+                    jsonRes = new ResponseFiled("Failed", e.getMessage(), String.format("%s", e.getErrorCode()));
             }
         } catch (NamingException e) {
             e.printStackTrace();
-            jsonRes = new ResponseFiled("Failed", "Context NamingException");
+            jsonRes = new ResponseFiled("Failed", "Context NamingException", e.getExplanation());
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -67,9 +66,16 @@ class RequestFiled {
 class ResponseFiled {
     String State;
     String Msg;
+    String Detail = null;
 
     ResponseFiled(String state, String msg) {
         this.State = state;
         this.Msg = msg;
+    }
+
+    ResponseFiled(String state, String msg, String detail) {
+        this.State = state;
+        this.Msg = msg;
+        this.Detail = detail;
     }
 }

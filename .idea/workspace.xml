@@ -8,6 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sign.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -117,46 +119,46 @@
         <counts>
           <entry key="gradle" value="8" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="28" />
+          <entry key="java" value="29" />
           <entry key="js" value="6" />
-          <entry key="jsp" value="7" />
+          <entry key="jsp" value="10" />
           <entry key="profile" value="2" />
-          <entry key="sql" value="15" />
-          <entry key="user" value="1" />
+          <entry key="sql" value="17" />
+          <entry key="user" value="3" />
           <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="3" />
+          <entry key="Database Element" value="5" />
           <entry key="Groovy" value="8" />
-          <entry key="JAVA" value="28" />
-          <entry key="JSP" value="7" />
+          <entry key="JAVA" value="29" />
+          <entry key="JSP" value="10" />
           <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SQL" value="11" />
-          <entry key="Scratch" value="4" />
+          <entry key="Scratch" value="6" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="19" />
-          <entry key="java" value="1824" />
+          <entry key="java" value="1979" />
           <entry key="js" value="18" />
-          <entry key="jsp" value="515" />
+          <entry key="jsp" value="594" />
           <entry key="sql" value="22" />
-          <entry key="txt" value="86" />
+          <entry key="txt" value="92" />
           <entry key="xml" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="19" />
-          <entry key="JAVA" value="1824" />
-          <entry key="JSP" value="515" />
+          <entry key="JAVA" value="1979" />
+          <entry key="JSP" value="594" />
           <entry key="JavaScript" value="18" />
-          <entry key="PLAIN_TEXT" value="86" />
+          <entry key="PLAIN_TEXT" value="92" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="21" />
           <entry key="XML" value="35" />
@@ -168,7 +170,38 @@
     <favorites_list name="WeiboLite" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/sign.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_1.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="72" lean-forward="true" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -499,12 +532,12 @@
         <option value="$PROJECT_DIR$/src/main/java/JsonFetcher.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/webapp/sign.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/JsonTool.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/context.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/SignUp.java" />
         <option value="$PROJECT_DIR$/database/WeiboLiteSimplify/CreateWeibo.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_1.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/sign.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/SignUp.java" />
       </list>
     </option>
   </component>
@@ -560,6 +593,39 @@
               <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -582,7 +648,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -695,7 +761,7 @@
       <updated>1536413859464</updated>
       <workItem from="1536413870908" duration="610000" />
       <workItem from="1536414508650" duration="2018000" />
-      <workItem from="1536548783445" duration="27681000" />
+      <workItem from="1536548783445" duration="28716000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -739,34 +805,49 @@
       <option name="project" value="LOCAL" />
       <updated>1536585874476</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="优化数据库">
+      <created>1536587421540</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1536587421540</updated>
+    </task>
+    <task id="LOCAL-00008" summary="优化数据库">
+      <created>1536587445639</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1536587445639</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30309000" />
+    <option name="totallyTimeSpent" value="31344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.1526833" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.15495087" />
       <window_info id="Structure" order="1" sideWeight="0.50199205" side_tool="true" weight="0.2532124" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50199205" side_tool="true" weight="0.2532124" />
       <window_info id="JavaEE:App" order="5" side_tool="true" />
       <window_info id="Web" order="6" sideWeight="0.50199205" side_tool="true" weight="0.2532124" />
-      <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.49962208" visible="true" weight="0.32934928" />
+      <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.49962208" weight="0.32934928" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49962208" weight="0.32934928" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4988662" weight="0.4687915" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4988662" weight="0.3997344" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49811035" visible="true" weight="0.3997344" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49962208" weight="0.32934928" />
       <window_info anchor="bottom" id="Application Servers" order="9" weight="0.32934928" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50037795" side_tool="true" visible="true" weight="0.32934928" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50188965" side_tool="true" weight="0.3997344" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32934928" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32934928" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32934928" />
@@ -807,7 +888,8 @@
     <MESSAGE value="JsonFetcher and SHA256" />
     <MESSAGE value="rename" />
     <MESSAGE value="引入数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="引入数据库" />
+    <MESSAGE value="优化数据库" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化数据库" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -978,13 +1060,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/sign.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="68" column="58" selection-start-line="68" selection-start-column="58" selection-end-line="68" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/OneDrive/Code/java/Lab/ChatRoom/.gradle/caches/modules-2/files-2.1/com.github.ikidou/TypeBuilder/1.0/91699fb13f09caf1a24eae68b43b1fbb115a3a8/TypeBuilder-1.0-sources.jar!/ikidou/reflect/TypeBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1087,25 +1162,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://d134d5ac-82bf-42ba-9a1f-0c6542b95673/database/WeiboLite/schema/public/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/WeiboLiteSimplify/CreateBaseAndUser.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/WeiboLiteSimplify/CreateWeibo.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -1142,10 +1200,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615">
+          <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d134d5ac-82bf-42ba-9a1f-0c6542b95673/database/WeiboLite/schema/public/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/sign.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="72" lean-forward="true" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
