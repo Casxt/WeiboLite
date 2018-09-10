@@ -3,7 +3,7 @@ import com.google.gson.Gson;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-public class JsonFetcher {
+public class JsonTool {
     public static <T> T fetch(HttpServletRequest req, Class<T> classOfT) throws IOException {
         StringBuilder sb = new StringBuilder();
         String s;

@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/JsonFetcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SHA256.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/JsonFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/JsonFetcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SignUp.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -72,7 +70,7 @@
         <counts>
           <entry key="gradle" value="5" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="15" />
+          <entry key="java" value="16" />
           <entry key="js" value="6" />
           <entry key="jsp" value="6" />
           <entry key="sql" value="1" />
@@ -82,7 +80,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="15" />
+          <entry key="JAVA" value="16" />
           <entry key="JSP" value="6" />
           <entry key="JavaScript" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -93,20 +91,20 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="15" />
-          <entry key="java" value="1209" />
+          <entry key="java" value="1220" />
           <entry key="js" value="18" />
           <entry key="jsp" value="513" />
-          <entry key="txt" value="49" />
+          <entry key="txt" value="74" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="15" />
-          <entry key="JAVA" value="1209" />
+          <entry key="JAVA" value="1220" />
           <entry key="JSP" value="513" />
           <entry key="JavaScript" value="18" />
-          <entry key="PLAIN_TEXT" value="49" />
+          <entry key="PLAIN_TEXT" value="74" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -117,11 +115,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
+            <state relative-caret-position="288">
+              <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/JsonFetcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -477,8 +487,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/SHA256.java" />
-        <option value="$PROJECT_DIR$/src/main/java/JsonFetcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/SignUp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/JsonFetcher.java" />
       </list>
     </option>
   </component>
@@ -694,7 +704,7 @@
       <updated>1536413859464</updated>
       <workItem from="1536413870908" duration="610000" />
       <workItem from="1536414508650" duration="2018000" />
-      <workItem from="1536548783445" duration="16505000" />
+      <workItem from="1536548783445" duration="16572000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -717,17 +727,24 @@
       <option name="project" value="LOCAL" />
       <updated>1536569101861</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JsonFetcher and SHA256">
+      <created>1536575981011</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1536575981011</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19133000" />
+    <option name="totallyTimeSpent" value="19200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.1526833" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.1526833" />
       <window_info id="Structure" order="1" sideWeight="0.50199205" side_tool="true" weight="0.2532124" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -737,7 +754,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49962208" weight="0.32934928" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4988662" weight="0.32934928" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997344" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997344" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -778,10 +795,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="添加servlet框架" />
     <MESSAGE value="JSP框架化" />
     <MESSAGE value="注册" />
-    <option name="LAST_COMMIT_MESSAGE" value="注册" />
+    <MESSAGE value="JsonFetcher and SHA256" />
+    <option name="LAST_COMMIT_MESSAGE" value="JsonFetcher and SHA256" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gradlew">
@@ -925,20 +947,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/JsonFetcher.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        <state relative-caret-position="288">
+          <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/JsonFetcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
+        <state relative-caret-position="84">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
