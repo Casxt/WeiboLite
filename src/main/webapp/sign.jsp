@@ -66,7 +66,7 @@
 
         const Closer = B.OnLoding("disabled", "注册中...");
 
-        let res = await JsonRequest("POST","/signup", );
+        let res = await JsonRequest("POST", "/signup", data);
         console.log(res);
         Closer();
     }

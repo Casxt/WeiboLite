@@ -1,15 +1,19 @@
-import com.google.gson.Gson;
-
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.UUID;
 
 @WebServlet(description = "User Sign In", urlPatterns = {"/signup"}, loadOnStartup = 1)
 public class SignUp extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("sign.jsp").forward(req, resp);
@@ -17,19 +21,40 @@ public class SignUp extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        RequestFiled jsonReq = JsonTool.fetch(req, RequestFiled.class);
+        UUID uuid = UUID.randomUUID();
+        String salt = SHA256.hash256(uuid.toString());
+        String saltPass = SHA256.hash256(salt + jsonReq.Password);
 
-        StringBuilder sb = new StringBuilder();
-        String s;
-        //考虑到大多数json格式的body不存在换行问题
-        while ((s = req.getReader().readLine()) != null) {
-            sb.append(s);
+        ResponseFiled jsonRes;
+        try {
+            DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
+            assert ds != null;
+            Connection conn = ds.getConnection();
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO profile(mail,nickname,salt,salt_pass) VALUES (?,?,?,?);");
+            //Statement statement = con.createStatement();
+            //ResultSet rs = statement.executeQuery("INSERT INTO profile(mail,nickname,salt,salt_pass) VALUES (?,?,?,?);");
+            stmt.setString(1, jsonReq.Nickname);
+            stmt.setString(2, jsonReq.Nickname);
+            stmt.setString(3, salt);
+            stmt.setString(4, saltPass);
+            stmt.executeUpdate();
+            conn.commit();
+            conn.close();
+            jsonRes = new ResponseFiled("Success", "注册成功");
+        } catch (SQLException e) {
+            switch (e.getErrorCode()) {
+                case 42701:
+                    jsonRes = new ResponseFiled("Failed", "用户名重复");
+                    break;
+                default:
+                    jsonRes = new ResponseFiled("Failed", "SignUp Unknown Error");
+            }
+        } catch (NamingException e) {
+            e.printStackTrace();
+            jsonRes = new ResponseFiled("Failed", "Context NamingException");
         }
-        RequestFiled jsonReq = new Gson().fromJson(sb.toString(), RequestFiled.class);
-
-
-        ResponseFiled jsonRes = new ResponseFiled("Success", "Sign Up Success");
-        resp.setContentType("application/json;charset=UTF-8");
-        resp.getWriter().write(new Gson().toJson(jsonRes));
+        JsonTool.response(resp, jsonRes);
     }
 }
 
