@@ -1,38 +1,13 @@
-<!DOCTYPE html>
-<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="utf-8" %>
-<html lang="en">
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css" crossorigin="anonymous" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/static/css/iconfont.css">
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand mr-4" href="#">WeiboLite</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="搜索用户或微博">
-        </form>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">热门微博</a>
-            </li>
-        </ul>
-        <a class="btn btn-outline-success text-white mr-2" href="#">登陆</a>
-    </div>
-</nav>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ include file="parts/header.jsp" %>
 <main class="container mt-4">
     <div class="shadow card p-3 mb-3 bg-light rounded-0 mx-auto" style="width: 25rem;">
         <h2 class="card-header rounded-0 border-bottom bg-light text-center">登陆或注册</h2>
         <div class="card-body">
             <form id="signIn-Form">
                 <div class="form-group">
-                    <label for="signIn-Email">账户</label>
-                    <input type="email" class="form-control rounded-0" id="signIn-Email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <label for="signIn-NickName">账户</label>
+                    <input type="text" class="form-control rounded-0" id="signIn-NickName" placeholder="NickName email" required>
                 </div>
 
                 <div class="form-group">
@@ -46,41 +21,54 @@
             </form>
             <form id="signUp-Form" hidden="hidden">
                 <div class="form-group">
-                    <label for="signUp-Email">邮箱</label>
-                    <input type="email" class="form-control rounded-0" id="signUp-Email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                </div>
-
-                <div class="form-group">
                     <label for="signUp-NickName">昵称</label>
-                    <input type="email" class="form-control rounded-0" id="signUp-NickName" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <input name="Nickname" type="text" class="form-control rounded-0" id="signUp-NickName" placeholder="Enter Nickname" required>
                 </div>
 
                 <div class="form-group">
                     <label for="signUp-Password">密码</label>
-                    <input type="password" class="form-control rounded-0" id="signUp-Password" placeholder="Password" required>
+                    <input name="Password" type="password" class="form-control rounded-0" id="signUp-Password" placeholder="Password" required>
                 </div>
 
                 <div class="form-group">
                     <label for="signUp-ConfirmPassword">确认密码</label>
-                    <input type="password" class="form-control rounded-0" id="signUp-ConfirmPassword" placeholder="Password" required>
+                    <input name="confirmPassword" type="password" class="form-control rounded-0" id="signUp-ConfirmPassword" placeholder="Password" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary rounded-0 float-right" onclick="this.innerHTML='注册中...';">注册</button>
+                <button id="signUp-button" type="button" class="btn btn-primary rounded-0 float-right" onclick="submitSignUp(this)">注册</button>
             </form>
         </div>
     </div>
 </main>
+<script type="text/javascript" src="/static/js/forge.min.js"></script>
 <script type="application/javascript">
     function showSignUpForm() {
-        document.getElementById("signUp-Email").value = document.getElementById("signIn-Email").value;
+        document.getElementById("signUp-NickName").value = document.getElementById("signIn-NickName").value;
         document.getElementById("signUp-Password").value = document.getElementById("signIn-Password").value;
         document.getElementById("signIn-Form").setAttribute("hidden","hidden");
         document.getElementById("signUp-Form").removeAttribute("hidden");
-        //$("#signIn-Form").hide();
-        //$("#signUp-Form").show();
+    }
+
+    async function submitSignUp(button) {
+        const B = new AnimeButton(button);
+
+        const formData = new FormData(document.getElementById("signUp-Form"));
+        if (formData.get("Password") !== formData.get("confirmPassword")){
+            B.Alert("btn btn-danger rounded-0 float-right disabled", "密码不符", 1000);
+            return;
+        }
+        let data = formData.ToArray();
+        delete(data.confirmPassword);
+
+        let md = forge.md.sha256.create();
+        md.update(data.Password);
+        data.HashPass = md.digest().toHex();
+
+        const Closer = B.OnLoding("disabled", "注册中...");
+
+        let res = await JsonRequest("POST","/signup", );
+        console.log(res);
+        Closer();
     }
 </script>
-<script src="/static/js/jquery-3.3.1.min.js"></script>
-<script src="/static/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<%@ include file="parts/footer.jsp" %>
