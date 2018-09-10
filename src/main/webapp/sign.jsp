@@ -84,7 +84,7 @@
 
         let md = forge.md.sha256.create();
         md.update(data.Password);
-        data.HashPass = md.digest().toHex();
+        data.Password = md.digest().toHex();
 
         const Closer = B.OnLoding("disabled", "注册中...");
 
@@ -102,11 +102,10 @@
         const B = new AnimeButton(button);
         const formData = new FormData(document.getElementById("signUp-Form"));
         let data = formData.ToArray();
-        delete(data.confirmPassword);
 
         let md = forge.md.sha256.create();
         md.update(data.Password);
-        data.HashPass = md.digest().toHex();
+        data.Password = md.digest().toHex();
 
         const Closer = B.OnLoding("disabled", "登陆中...");
 

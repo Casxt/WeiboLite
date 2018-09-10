@@ -57,7 +57,7 @@ public class SignIn extends HttpServlet {
             }
         } catch (NamingException e) {
             e.printStackTrace();
-            jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+            jsonRes = new ResponseField("Failed", "服务器资源不足", e.getExplanation());
         }
         JsonTool.response(resp, jsonRes);
     }
