@@ -1,33 +1,84 @@
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 @WebServlet(description = "User Sign In", urlPatterns = {"/signin"}, loadOnStartup = 1)
 public class SignIn extends HttpServlet {
-
-    private String message;
-
-    public void init() {
-        // 执行必需的初始化
-        message = "Hello World";
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("sign.jsp").forward(req, resp);
     }
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws IOException {
-        // 设置响应内容类型
-        response.setContentType("text/html");
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        SignUpRequestField jsonReq = JsonTool.fetch(req, SignUpRequestField.class);
+        ResponseField jsonRes;
 
-        // 实际的逻辑是在这里
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + message + "</h1>");
+        if (!jsonReq.Vaild()) {
+            jsonRes = new ResponseField("Failed", "Invalid Parameter");
+            JsonTool.response(resp, jsonRes);
+            return;
+        }
+
+        try {
+            DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
+            assert ds != null;
+            Connection conn = ds.getConnection();
+            PreparedStatement stmt = conn.prepareStatement("SELECT salt,salt_pass FROM public.user WHERE nickname=?;");
+            stmt.setString(1, jsonReq.Nickname);
+            ResultSet res = stmt.executeQuery();
+            if (res.next()) {
+                String userPass = SHA256.hash256(res.getString("salt") + jsonReq.Password);
+                if (userPass.equals(res.getString("salt_pass"))) {
+                    req.getSession().setAttribute("nickname", jsonReq.Nickname);
+                    jsonRes = new ResponseField("Success", "登陆成功");
+                } else {
+                    jsonRes = new ResponseField("Failed", "密码错误");
+                }
+            } else {
+                jsonRes = new ResponseField("Failed", "用户名不存在");
+            }
+            conn.close();
+        } catch (SQLException e) {
+            switch (e.getSQLState()) {
+                default:
+                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("%s", e.getSQLState()));
+            }
+        } catch (NamingException e) {
+            e.printStackTrace();
+            jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        }
+        JsonTool.response(resp, jsonRes);
     }
+}
 
-    public void destroy() {
-        // 什么也不做
+class SignInRequestField {
+    private static Pattern nickNamePattern = Pattern.compile("^[A-Za-z0-9@_\\-]{5,64}$");
+    private static Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9]{64}$");
+    String Nickname;
+    String Password;
+
+    public boolean Vaild() {
+
+        if (Nickname != null && !nickNamePattern.matcher(Nickname).matches()) {
+            return false;
+        }
+        if (Password != null && !passwordPattern.matcher(Password).matches()) {
+            return false;
+        }
+        Nickname = Nickname.toLowerCase();
+        Password = Password.toLowerCase();
+        return true;
     }
 }
