@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 class JsonTool {
-    static Gson gson = new Gson();
+    private static Gson gson = new Gson();
 
     static <T> T fetch(HttpServletRequest req, Class<T> classOfT) throws IOException {
         StringBuilder sb = new StringBuilder();
@@ -14,11 +14,6 @@ class JsonTool {
         while ((s = req.getReader().readLine()) != null) {
             sb.append(s);
         }
-        /*
-        Type type = TypeBuilder
-                .newInstance(classOfT)
-                .build();
-                */
         return gson.fromJson(sb.toString(), classOfT);
     }
 

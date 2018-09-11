@@ -1,8 +1,12 @@
 -- 按时间倒序选出comment和weibo
-SELECT 'comment' as type, id, comment_date as message_date FROM comment WHERE user_id IN (?...) AND is_dalete=FALSE
+SELECT 'comment' as type, id, comment as content, is_delete, comment_date as message_date FROM comment WHERE user_id IN (14,15)
 UNION ALL
-SELECT 'weibo' as type, id, weibo_date as message_date FROM weibo WHERE user_id IN (?...) AND is_dalete=FALSE
-ORDER BY message_date DESC LIMIT 20 OFFSET ?;
+SELECT 'weibo' as type, id, content, is_delete, weibo_date as message_date FROM weibo WHERE user_id IN (14,15)
+ORDER BY message_date DESC LIMIT 20 OFFSET 0;
+
+SELECT id, content, forward, is_delete, weibo_date FROM weibo WHERE user_id IN (14,15) ORDER BY weibo_date DESC LIMIT 20 OFFSET 0;
+
+SELECT id, content, forward, is_delete, weibo_date FROM weibo JOIN "user" u on weibo.user_id = u.id WHERE u.nickname=? ORDER BY weibo_date DESC LIMIT 20 OFFSET 0;
 
 -- 获取weibo详情，之后在程序中判断forward_type，并再次获取引用详情
 SELECT id, nickname, profile_picture, content, forward_type, forward FROM weibo JOIN profile ON weibo.user_id=profile.id WHERE id=?;

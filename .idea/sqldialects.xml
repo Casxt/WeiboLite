@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/SignIn.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/SignUp.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Weibo.java" dialect="PostgreSQL" />
   </component>
 </project>

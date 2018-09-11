@@ -35,13 +35,14 @@ public class SignIn extends HttpServlet {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
             Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT salt,salt_pass FROM public.user WHERE nickname=?;");
+            PreparedStatement stmt = conn.prepareStatement("SELECT id,salt,salt_pass FROM public.user WHERE nickname=?;");
             stmt.setString(1, jsonReq.Nickname);
             ResultSet res = stmt.executeQuery();
             if (res.next()) {
                 String userPass = SHA256.hash256(res.getString("salt") + jsonReq.Password);
                 if (userPass.equals(res.getString("salt_pass"))) {
                     req.getSession().setAttribute("nickname", jsonReq.Nickname);
+                    req.getSession().setAttribute("uid", res.getLong("id"));
                     jsonRes = new ResponseField("Success", "登陆成功");
                 } else {
                     jsonRes = new ResponseField("Failed", "密码错误");

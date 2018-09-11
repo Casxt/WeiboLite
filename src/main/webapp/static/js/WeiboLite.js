@@ -22,7 +22,7 @@ FormData.prototype.urlencode = function () {
         typeof pair[1] == 'string' && params.append(pair[0], pair[1]);
     }
     return params.toString();
-}
+};
 /**
  * ToArray Trans A FormData to Array
  * @param {*} args 
@@ -31,7 +31,7 @@ FormData.prototype.ToArray = function (args) {
     let Data = {};
     this.forEach((value, key) => Data[key] = value);
     return Data;
-}
+};
 
 async function JsonRequest(httpmethod, url, data) {
     const request = new Request(url, {
@@ -41,9 +41,8 @@ async function JsonRequest(httpmethod, url, data) {
             'Content-Type': 'application/json',
         },
         method: httpmethod,
-        body: JSON.stringify(data),
+        body: httpmethod === "GET" ? undefined : JSON.stringify(data),
     });
-
     const response = await fetch(request);
     return await response.json();
 }
@@ -90,7 +89,7 @@ String.prototype.format = function (args) {
         }
     }
     return result;
-}
+};
 
 
 function FormatTime(TimeStr) {
@@ -120,7 +119,7 @@ class AnimeButton {
 
     OnLoding(className, innerHTML) {
         this.jqButton.addClass(className);
-        const OldHtml = this.button.innerHTML
+        const OldHtml = this.button.innerHTML;
         this.button.disabled = true;
         this.button.innerHTML = innerHTML;
         return () => {
@@ -131,8 +130,8 @@ class AnimeButton {
     }
 
     Alert(className, innerHTML, delay) {
-        const OldclassName = this.button.className
-        const OldinnerHTML = this.button.innerHTML
+        const OldclassName = this.button.className;
+        const OldinnerHTML = this.button.innerHTML;
 
         this.button.className = className;
         this.button.innerHTML = innerHTML;
