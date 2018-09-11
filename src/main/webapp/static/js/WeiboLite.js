@@ -73,17 +73,18 @@ String.prototype.format = function (args) {
 
     let result = this;
     if (arguments.length > 0) {
-        if (arguments.length == 1 && typeof (args) == "object") {
+        if (arguments.length === 1 && typeof (args) === "object") {
             for (const key in args) {
-                if (args[key] != undefined) {
-                    result = result.replace(RegExp("{" + key + "}", "g"), args[key]);
+                if (args[key] !== undefined) {
+                    //RegExp("{" + key + "}", "g")
+                    result = result.replace(new RegExp("{" + key + "}", "g"), args[key]);
                 }
             }
         } else {
             for (let i = 0; i < arguments.length; i++) {
-                if (arguments[i] != undefined) {　　　　　　　　　　　　
-                    const reg = new RegExp("({)" + i + "(})", "g");
-                    result = result.replace("{" + i + "}", arguments[i]);
+                if (arguments[i] !== undefined) {
+                    //const reg = new RegExp("({)" + i + "(})", "g");
+                    result = result.replace(new RegExp("({)" + i + "(})", "g"), arguments[i]);
                 }
             }
         }
@@ -91,9 +92,11 @@ String.prototype.format = function (args) {
     return result;
 };
 
-
+/**
+ * @return {string}
+ */
 function FormatTime(TimeStr) {
-    return TimeStr.replace("T", " ").replace("Z", "")
+    return TimeStr.replace("T", " ").replace("Z", "").split(".")[0]
 }
 
 class AnimeButton {

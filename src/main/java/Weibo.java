@@ -52,24 +52,11 @@ public class Weibo extends HttpServlet {
             PreparedStatement stmt;
             ResultSet weiboList;
             if (user == null) {
-                stmt = conn.prepareStatement("SELECT follow_id FROM follow WHERE user_id=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE user_id = ANY( SELECT follow_id FROM follow WHERE user_id= ? UNION SELECT ? as follow_id  ) ORDER BY weibo_date DESC LIMIT ? OFFSET ?;");
                 stmt.setLong(1, (long) session.getAttribute("uid"));
-                ResultSet follow = stmt.executeQuery();
-                //获取follow数量
-                follow.last();
-                int size = follow.getRow();
-                follow.beforeFirst();
-                //获取follow值
-                Long[] followID = new Long[size];
-                int i = 0;
-                while (follow.next()) {
-                    followID[i] = follow.getLong("follow_id");
-                    i += 1;
-                }
-                stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE user_id = ANY(?) ORDER BY weibo_date DESC LIMIT ? OFFSET ?;");
-                stmt.setArray(1, conn.createArrayOf("int64", followID));
-                stmt.setInt(2, Integer.parseInt(num));
-                stmt.setInt(3, Integer.parseInt(offset));
+                stmt.setLong(2, (long) session.getAttribute("uid"));
+                stmt.setInt(3, Integer.parseInt(num));
+                stmt.setInt(4, Integer.parseInt(offset));
                 weiboList = stmt.executeQuery();
             } else {
                 stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE nickname = ? ORDER BY weibo_date DESC LIMIT ? OFFSET ?;");
@@ -91,10 +78,10 @@ public class Weibo extends HttpServlet {
                 ResultSet rs = stmt.executeQuery();
                 rs.next();
                 w.Forward = new WeiboStruct().getInfo(rs);
-                weiboStructs.add(w);
+                weiboStructs.addLast(w);
             }
             conn.close();
-            WeiboResponseField weiboListRes = new WeiboResponseField("Success", "获取成功", weiboStructs.toArray(new WeiboStruct[weiboStructs.size()]));
+            WeiboResponseField weiboListRes = new WeiboResponseField("Success", "获取成功", weiboStructs.toArray(new WeiboStruct[3]));
             JsonTool.response(resp, weiboListRes);
             return;
         } catch (SQLException e) {
@@ -196,6 +183,7 @@ class WeiboStruct {
     long WeiboID = 0;
     String Nickname = "";
     String ProfilePic = "";
+    String Content = "";
     String Time = "";
     boolean Deleted = true;
     WeiboStruct Forward = null;
@@ -203,11 +191,13 @@ class WeiboStruct {
     WeiboStruct getInfo(ResultSet weiboList) throws SQLException {
         Deleted = weiboList.getBoolean("is_deleted");
         if (Deleted) {
+            Content = "该微博已删除";
             return this;
         }
         WeiboID = weiboList.getLong("id");
         Nickname = weiboList.getString("nickname");
         ProfilePic = weiboList.getString("profile_picture");
+        Content = weiboList.getString("content");
         Time = weiboList.getString("weibo_date");
         return this;
     }
