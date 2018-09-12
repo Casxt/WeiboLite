@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.regex.Pattern;
 
 /*http://localhost:8080/weibo?Num=20&Offset=0&User=maple*/
-@WebServlet(description = "User Sign In", urlPatterns = {"/weibo"}, loadOnStartup = 1)
+@WebServlet(description = "weibo", urlPatterns = {"/weibo"}, loadOnStartup = 1)
 public class Weibo extends HttpServlet {
     private static Pattern numPattern = Pattern.compile("^[\\d]*$");
     private static Pattern nickNamePattern = Pattern.compile("^[A-Za-z0-9@_\\-]{5,64}$");
@@ -68,20 +68,19 @@ public class Weibo extends HttpServlet {
 
             //获取转发信息
             while (weiboList.next()) {
-                WeiboStruct w = new WeiboStruct().getInfo(weiboList);
+                WeiboStruct w = new WeiboStruct(weiboList);
                 long forward = weiboList.getLong("forward");
                 if (!weiboList.wasNull()) {
                     stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE weibo.id = ?;");
                     stmt.setLong(1, forward);
                     ResultSet rs = stmt.executeQuery();
                     rs.next();
-                    w.Forward = new WeiboStruct().getInfo(rs);
+                    w.Forward = new WeiboStruct(rs);
                 }
                 weiboStructs.addLast(w);
-                int len = weiboStructs.size();
             }
             conn.close();
-            WeiboResponseField weiboListRes = new WeiboResponseField("Success", "获取成功", weiboStructs.toArray(new WeiboStruct[3]));
+            WeiboResponseField weiboListRes = new WeiboResponseField("Success", "获取成功", weiboStructs.toArray(new WeiboStruct[0]));
             JsonTool.response(resp, weiboListRes);
             return;
         } catch (SQLException e) {
@@ -241,6 +240,20 @@ class WeiboStruct {
     String Time = "";
     boolean Deleted = true;
     WeiboStruct Forward = null;
+
+    WeiboStruct(ResultSet weiboList) throws SQLException {
+        Deleted = weiboList.getBoolean("is_deleted");
+        if (Deleted) {
+            Content = "该微博已删除";
+            return;
+        }
+        WeiboID = weiboList.getLong("id");
+        Nickname = weiboList.getString("nickname");
+        ProfilePic = weiboList.getString("profile_picture");
+        Content = weiboList.getString("content");
+        Time = weiboList.getString("weibo_date");
+
+    }
 
     WeiboStruct getInfo(ResultSet weiboList) throws SQLException {
         Deleted = weiboList.getBoolean("is_deleted");

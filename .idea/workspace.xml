@@ -7,11 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="修复一个bug">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Weibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Weibo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -131,11 +131,11 @@
         <counts>
           <entry key="gradle" value="8" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="51" />
-          <entry key="js" value="9" />
-          <entry key="jsp" value="19" />
+          <entry key="java" value="52" />
+          <entry key="js" value="10" />
+          <entry key="jsp" value="21" />
           <entry key="profile" value="2" />
-          <entry key="sql" value="20" />
+          <entry key="sql" value="21" />
           <entry key="ts" value="3" />
           <entry key="user" value="3" />
           <entry key="xml" value="8" />
@@ -145,11 +145,11 @@
         <counts>
           <entry key="Database Element" value="5" />
           <entry key="Groovy" value="8" />
-          <entry key="JAVA" value="51" />
-          <entry key="JSP" value="19" />
-          <entry key="JavaScript" value="9" />
+          <entry key="JAVA" value="52" />
+          <entry key="JSP" value="21" />
+          <entry key="JavaScript" value="10" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="SQL" value="13" />
+          <entry key="SQL" value="14" />
           <entry key="Scratch" value="7" />
           <entry key="TypeScript" value="3" />
           <entry key="XML" value="8" />
@@ -158,9 +158,9 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="19" />
-          <entry key="java" value="5196" />
-          <entry key="js" value="128" />
-          <entry key="jsp" value="2301" />
+          <entry key="java" value="6191" />
+          <entry key="js" value="130" />
+          <entry key="jsp" value="3529" />
           <entry key="sql" value="92" />
           <entry key="txt" value="163" />
           <entry key="xml" value="35" />
@@ -169,9 +169,9 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="19" />
-          <entry key="JAVA" value="5196" />
-          <entry key="JSP" value="2301" />
-          <entry key="JavaScript" value="128" />
+          <entry key="JAVA" value="6191" />
+          <entry key="JSP" value="3529" />
+          <entry key="JavaScript" value="130" />
           <entry key="PLAIN_TEXT" value="163" />
           <entry key="SQL" value="60" />
           <entry key="Scratch" value="32" />
@@ -188,13 +188,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Weibo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1327">
-              <caret line="171" selection-start-line="171" selection-end-line="171" />
+            <state relative-caret-position="198">
+              <caret line="185" column="5" lean-forward="true" selection-start-line="143" selection-start-column="4" selection-end-line="185" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#doGet#0;class#Weibo#0" />
+                <element signature="method#doPost#0;class#Weibo#0" />
+                <element signature="method#doDelete#0;class#Weibo#0" />
                 <element signature="e#8359#8360#0" expanded="true" />
                 <element signature="e#8393#8394#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="133" column="26" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -203,17 +216,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-619">
-              <caret line="123" column="7" lean-forward="true" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
+            <state relative-caret-position="152">
+              <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
               <folding>
-                <element signature="e#1222#1761#0#HTML" />
-                <element signature="e#1292#1326#0#HTML" expanded="true" />
-                <element signature="e#3149#3786#0#HTML" />
-                <element signature="e#3839#4745#0#HTML" />
-                <element signature="e#4766#5692#0#HTML" />
-                <element signature="e#6582#6858#0#HTML" />
-                <element signature="e#6932#7686#0#HTML" />
-                <element signature="e#8654#9328#0#HTML" />
+                <element signature="e#1222#1840#0#HTML" />
+                <element signature="e#4220#4948#0#HTML" />
+                <element signature="e#6570#6846#0#HTML" />
+                <element signature="e#6959#7625#0#HTML" />
+                <element signature="e#6920#7674#0#HTML" />
+                <element signature="e#7853#9037#0#HTML" />
+                <element signature="e#9508#9524#0#HTML" />
+                <element signature="e#10125#10141#0#HTML" />
+                <element signature="e#7716#8019#0#HTML" />
+                <element signature="e#8987#10299#0#HTML" />
+                <element signature="e#10896#10912#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -222,8 +238,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/template.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="155" column="88" lean-forward="true" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="88" />
+            <state relative-caret-position="228">
+              <caret line="42" selection-start-line="42" selection-end-line="45" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -231,17 +247,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ResponseField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" selection-start-line="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="266">
+              <caret line="86" column="67" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -590,9 +597,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_2.sql" />
         <option value="$PROJECT_DIR$/database/MessageLine.sql" />
         <option value="$PROJECT_DIR$/src/main/webapp/templte.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/Weibo.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js" />
+        <option value="$PROJECT_DIR$/src/main/java/Comment.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       </list>
     </option>
@@ -659,6 +667,11 @@
             <path>
               <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
               <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -666,13 +679,6 @@
               <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
@@ -680,14 +686,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="parts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -825,7 +823,7 @@
       <updated>1536413859464</updated>
       <workItem from="1536413870908" duration="610000" />
       <workItem from="1536414508650" duration="2018000" />
-      <workItem from="1536548783445" duration="60416000" />
+      <workItem from="1536548783445" duration="75326000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -932,11 +930,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536673042406</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="修复一个bug">
+      <created>1536712515346</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1536712515346</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63044000" />
+    <option name="totallyTimeSpent" value="77954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -948,7 +953,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1381" height="885" extended-state="7" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.17989418" />
@@ -1018,7 +1023,8 @@
     <MESSAGE value="完成登陆" />
     <MESSAGE value="Weibo API" />
     <MESSAGE value="优化sql语句" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化sql语句" />
+    <MESSAGE value="修复一个bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复一个bug" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1031,13 +1037,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/Program Files/jdk-10.0.2/lib/src.zip!/java.naming/javax/naming/InitialContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="407" column="18" selection-start-line="407" selection-start-column="18" selection-end-line="407" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Program Files/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Class.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -1247,13 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/MessageLine.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="162" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_2.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -1330,13 +1322,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/FormatTime.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ResponseField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" selection-start-line="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es2015.symbol.wellknown.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -1372,46 +1357,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ResponseField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/MessageLine.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="86" column="67" selection-start-line="86" selection-start-column="67" selection-end-line="86" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Weibo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1327">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
+        <state relative-caret-position="198">
+          <caret line="185" column="5" lean-forward="true" selection-start-line="143" selection-start-column="4" selection-end-line="185" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#doGet#0;class#Weibo#0" />
+            <element signature="method#doPost#0;class#Weibo#0" />
+            <element signature="method#doDelete#0;class#Weibo#0" />
             <element signature="e#8359#8360#0" expanded="true" />
             <element signature="e#8393#8394#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/WeiboLite.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state relative-caret-position="117">
+          <caret line="133" column="26" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/template.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="155" column="88" lean-forward="true" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="88" />
+        <state relative-caret-position="228">
+          <caret line="42" selection-start-line="42" selection-end-line="45" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-619">
-          <caret line="123" column="7" lean-forward="true" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
+        <state relative-caret-position="152">
+          <caret line="282" column="19" selection-start-line="282" selection-start-column="19" selection-end-line="282" selection-end-column="19" />
           <folding>
-            <element signature="e#1222#1761#0#HTML" />
-            <element signature="e#1292#1326#0#HTML" expanded="true" />
-            <element signature="e#3149#3786#0#HTML" />
-            <element signature="e#3839#4745#0#HTML" />
-            <element signature="e#4766#5692#0#HTML" />
-            <element signature="e#6582#6858#0#HTML" />
-            <element signature="e#6932#7686#0#HTML" />
-            <element signature="e#8654#9328#0#HTML" />
+            <element signature="e#1222#1840#0#HTML" />
+            <element signature="e#4220#4948#0#HTML" />
+            <element signature="e#6570#6846#0#HTML" />
+            <element signature="e#6959#7625#0#HTML" />
+            <element signature="e#6920#7674#0#HTML" />
+            <element signature="e#7853#9037#0#HTML" />
+            <element signature="e#9508#9524#0#HTML" />
+            <element signature="e#10125#10141#0#HTML" />
+            <element signature="e#7716#8019#0#HTML" />
+            <element signature="e#8987#10299#0#HTML" />
+            <element signature="e#10896#10912#0#HTML" />
           </folding>
         </state>
       </provider>

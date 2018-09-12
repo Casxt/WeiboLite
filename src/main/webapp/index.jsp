@@ -9,7 +9,7 @@
                     <textarea name="Content" class="form-control mb-2 rounded-0"></textarea>
                     <input type="number" name="Forward" value="0" hidden>
                     <button class="btn btn-primary rounded-0 float-right" id="pubishWeibo-Button" type="button"
-                            onclick="PublishWeibo(this)">发布
+                            onclick="PublishWeibo(this,'publishWeibo-Form')">发布
                     </button>
                     <label class="btn btn-primary rounded-0 my-auto float-right mx-2" for="images">上传图片</label>
                     <input name="Imgs" type="file" id="images" accept="image/png, image/jpeg" multiple
@@ -58,74 +58,66 @@
                     </div>
                 </div>
                 <div class="btn-group btn-group-toggle mt-0 float-right" data-toggle="buttons">
-                    <button class="btn btn-secondary btn-sm text-light rounded-0" type="button" data-toggle="collapse"
-                            href="#Weibo-{WeiboID}-Comment">
+                    <button class="btn btn-secondary btn-sm text-light rounded-0" data-toggle="collapse"
+                            href="#Weibo-{WeiboID}-Comment" value="1"
+                            onclick="this.value===1?LoadComment({WeiboID},0):null;this.value?this.value=0:null;">
                         <!--评论--><i class="iconfont icon-pinglun"></i>
                     </button>
-                    <a class="btn btn-sm btn-secondary text-light rounded-0" onclick="DeleteWeibo({WeiboID});"
+                    <button class="btn btn-secondary btn-sm text-light rounded-0" data-toggle="modal"
+                            data-target="#forwardModal"
+                            onclick="document.getElementById('forwardModal-form-forward').value={WeiboID};">
+                        <!--转发--><i class="iconfont icon-zhuanfa"></i>
+                    </button>
+                    <button class="btn btn-sm btn-secondary text-light rounded-0" onclick="DeleteWeibo({WeiboID});"
                        {WeiboDeleteHidden}>
                         <!--删除--><i class="iconfont icon-guanbi"></i>
-                    </a>
+                    </button>
                 </div>
                 <div class="collapse mt-5 pl-5" id="Weibo-{WeiboID}-Comment">
                     <!-- 评论框 -->
-                    <div class="media">
-                        <div class="media-body container px-0">
-                            <form class="form-inline m-0 container px-0">
-                                <div class="form-group input-group-sm w-75">
-                                    <input type="text" class="form-control w-100 ml-0 rounded-0"
-                                           placeholder="评论">
-                                </div>
-                                <button type="button" class="btn btn-sm btn-primary mx-1 rounded-0">评论</button>
-                            </form>
-                        </div>
+                    <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
+                        <button type="button" class="btn btn-sm btn-primary rounded-0" data-toggle="modal"
+                                data-target="#commentModal" onclick="SetCommentData({WeiboID},0);">添加评论
+                        </button>
                     </div>
                     <!-- 评论 -->
-                    <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
-                        <div class="media-body">
-                            <h6 class="mt-0">
-                                评论者1
-                                <div class="btn-group mt-0" data-toggle="buttons">
-                                    <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
-                                        <i class="iconfont icon-pinglun"></i>
-                                    </button>
-                                    <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
-                                        <i class="iconfont icon-guanbi"></i>
-                                    </button>
-                                </div>
-                            </h6>
-                            <small>一条评论，一条评论，一条评论一条评论，一条评论</small>
-                        </div>
-                    </div>
-                    <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
-                        <div class="media-body">
-                            <h6 class="mt-0">
-                                评论者2
-                                <div class="btn-group mt-0" data-toggle="buttons">
-                                    <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
-                                        <i class="iconfont icon-pinglun"></i>
-                                    </button>
-                                    <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0">
-                                        <i class="iconfont icon-guanbi"></i>
-                                    </button>
-                                </div>
-                            </h6>
-                            <small>对 <kbd>评论1</kbd> 说: 一条评论，一条评论，一条评论一条评论，一条评论</small>
-                        </div>
+                    <div id="Weibo-{WeiboID}-Comment-List">
                     </div>
                     <!-- 评论翻页 -->
                     <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
-                        <button id="Weibo-{WeiboID}-LoadComment" value="0" type="button"
-                                class="btn btn-secondary btn-lg btn-block rounded-0"
-                                onclick="LoadComment({WeiboID},this);">加载更多
+                        <button id="Weibo-{WeiboID}-LoadComment" value="5" type="button"
+                                class="btn btn-secondary btn-sm rounded-0"
+                                onclick="LoadComment({WeiboID},parseInt(this.value));this.value=parseInt(this.value)+5;">
+                            加载更多
                         </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <button id="loadWeibo" value="0" type="button" class="btn btn-secondary btn-lg btn-block rounded-0"
-            onclick="LoadWeibo();">加载更多
+    <!-- 评论模板 -->
+    <div id="commentTemplate" hidden>
+        <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
+            <div class="media-body">
+                <h6 class="mt-0">
+                    {Nickname}
+                    <div class="btn-group mt-0" data-toggle="buttons">
+                        <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0" data-toggle="modal"
+                                data-target="#commentModal" onclick="SetCommentData({WeiboID},{CommentID});">
+                            <i class="iconfont icon-pinglun"></i>
+                        </button>
+                        <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0"
+                                onclick="DeleteComment({WeiboID},{CommentID});" {CommentDeleteHidden}>
+                            <i class="iconfont icon-guanbi"></i>
+                        </button>
+                    </div>
+                </h6>
+                <small>{CommentNickname} {Comment}</small>
+            </div>
+        </div>
+    </div>
+    <button id="loadWeibo" value="5" type="button" class="btn btn-secondary btn-lg btn-block rounded-0"
+            onclick="LoadWeibo(parseInt(this.value));this.value=parseInt(this.value)+5;">加载更多
     </button>
 </main>
 
@@ -138,6 +130,49 @@
         <button type="button" class="btn btn-primary rounded-0" onclick="this.innerHTML='取消关注';">关注</button>
     </div>
 </div>
+
+<!--评论modal-->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog rounded-0" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-body">
+                <form id="commentModal-form" class="form-inline m-0 container px-0">
+                    <div class="form-group input-group-sm w-75">
+                        <input id="commentModal-form-comment" name="Comment" type="text"
+                               class="form-control w-100 ml-0 rounded-0"
+                               placeholder="评论">
+                    </div>
+                    <input id="commentModal-form-weiboid" name="WeiboID" type="hidden" value="">
+                    <input id="commentModal-form-commentid" name="CommentID" type="hidden" value="">
+                    <button type="button" class="btn btn-sm btn-primary mx-1 rounded-0" onclick="PublishComment(this);">
+                        评论
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--转发modal-->
+<div class="modal fade" id="forwardModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog rounded-0" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-body">
+                <form id="forwardModal-form" class="form-inline m-0 container px-0">
+                    <div class="form-group input-group-sm w-75">
+                        <input id="forwardModal-form-comment" name="Content" type="text"
+                               class="form-control w-100 ml-0 rounded-0"
+                               placeholder="评论">
+                    </div>
+                    <input id="forwardModal-form-forward" name="Forward" type="hidden" value="">
+                    <button type="button" class="btn btn-sm btn-primary mx-1 rounded-0"
+                            onclick="PublishWeibo(this, 'forwardModal-form');">
+                        转发
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -163,11 +198,75 @@
         reader.readAsDataURL(file.files[count]);
     }
 
+    async function PublishComment(button) {
+        const B = new AnimeButton(button);
+        const formData = new FormData(document.getElementById("commentModal-form"));
+        let data = formData.ToArray();
+        if (data.Comment.length > 255) {
+            B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过多", 1000);
+        } else if (data.Comment.length < 2) {
+            B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过少", 1000);
+        }
+        const Closer = B.OnLoding("disabled", "评论中...");
+        const res = await JsonRequest("POST", "/comment", data);
+        console.log(res);
+        Closer();
+        if (res.State === "Success") {
+            B.Alert("btn btn-sm btn-success mx-1 rounded-0 disabled", res.Msg, 1000);
+            $('#commentModal').modal("hide");
+            document.getElementById("commentModal-form-comment").value = "";
+            document.getElementById("Weibo-" + data.WeiboID + "-Comment-List").innerHTML = "";
+            document.getElementById("Weibo-" + data.WeiboID + "-LoadComment").value = 5;
+            LoadComment(data.WeiboID, 0);
+        } else {
+            B.Alert("btn btn-sm btn-danger mx-1 rounded-0 disabled", res.Msg, 1000);
+        }
+    }
+
+    async function LoadComment(weiboid, offset) {
+        const res = await JsonRequest("GET", "/comment?Num=5&Offset={0}&WeiboID={1}".format(offset, weiboid), undefined);
+        if (res.State !== "Success") {
+            return;
+        }
+        const commentList = document.getElementById("Weibo-" + weiboid + "-Comment-List");
+        const commentTemplate = document.getElementById("commentTemplate").innerHTML;
+        const nickname = document.getElementById("nickname").innerHTML;
+        for (const comment of res.CommentList) {
+            if (comment.Deleted === true) {
+                continue;
+            }
+            if (comment.CommentNickname !== undefined) {
+                comment.CommentNickname = "对<kbd>" + comment.CommentNickname + "</kbd>说:";
+            } else {
+                comment.CommentNickname = "";
+            }
+            if (comment.Nickname === nickname) {
+                comment.CommentDeleteHidden = "";
+            } else {
+                comment.CommentDeleteHidden = "";//hidden
+            }
+            commentList.innerHTML += commentTemplate.format(comment);
+        }
+    }
+
+    async function DeleteComment(weiboid, commentid) {
+        const data = {
+            "CommentID": commentid,
+        };
+        const res = await JsonRequest("DELETE", "/comment", data);
+        if (res.State === "Success") {
+            document.getElementById("Weibo-" + weiboid + "-Comment-List").innerHTML = "";
+            document.getElementById("Weibo-" + weiboid + "-LoadComment").value = 5;
+            LoadComment(weiboid, 0);
+        } else {
+            alert("该条评论不属于你");
+        }
+    }
+
     async function DeleteWeibo(weiboid) {
         const data = {
             "WeiboID": weiboid,
         };
-        console.log(weiboid);
         const res = await JsonRequest("DELETE", "/weibo", data);
         if (res.State === "Success") {
             window.location.reload();
@@ -176,14 +275,16 @@
         }
     }
 
-    async function PublishWeibo(button) {
+    async function PublishWeibo(button, formName) {
         const B = new AnimeButton(button);
-        const formData = new FormData(document.getElementById("publishWeibo-Form"));
+        const formData = new FormData(document.getElementById(formName));
         let data = formData.ToArray();
         if (data.Content.length > 255) {
             B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过多", 1000);
+            return;
         } else if (data.Content.length < 5) {
             B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过少", 1000);
+            return;
         }
         data.Imgs = [];
         const Closer = B.OnLoding("disabled", "发布中...");
@@ -198,10 +299,8 @@
         }
     }
 
-    async function LoadWeibo() {
-        const offset = document.getElementById("loadWeibo").value;
+    async function LoadWeibo(offset) {
         const res = await JsonRequest("GET", "/weibo?Num=5&Offset=" + offset, undefined);
-        document.getElementById("loadWeibo").value += 5;
         console.log(res);
         if (res.State !== "Success") {
             return;
@@ -210,8 +309,10 @@
         const forwardTemplate = document.getElementById("forwardTemplate").innerHTML;
         const weiboTemplate = document.getElementById("weiboTemplate").innerHTML;
         let weiboList = document.getElementById("weiboList");
-        for (let weibo of res.WeiboList) {
-            console.log(weibo);
+        for (const weibo of res.WeiboList) {
+            if (weibo.Deleted === true) {
+                continue;
+            }
             if (weibo.hasOwnProperty("Forward")) {
                 weibo.Forward.Time = FormatTime(new Date(weibo.Forward.Time).toLocaleString());
                 weibo.Forward = forwardTemplate.format(weibo.Forward);
@@ -227,6 +328,12 @@
             weiboList.innerHTML += weiboTemplate.format(weibo);
         }
     }
-    window.onload = () => LoadWeibo();
+
+    window.onload = () => LoadWeibo(0);
+
+    function SetCommentData(WeiboID, CommentID) {
+        document.getElementById("commentModal-form-weiboid").value = WeiboID;
+        document.getElementById("commentModal-form-commentid").value = CommentID;
+    }
 </script>
 <%@ include file="parts/footer.jsp" %>
