@@ -16,32 +16,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!--搜索栏-->
         <div class="input-group mb-3 w-auto my-auto" <% out.print(SignIn ? "" : "hidden");%>>
-            <!--
-            <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary dropdown-toggle text-light" type="button"
-                        data-toggle="dropdown">用户
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="/serachWeibo.jsp">微博</a>
-                    <a class="dropdown-item" href="/serachUser.jsp">用户</a>
-                </div>
-            </div>
-            -->
-            <button class="btn btn-outline-secondary text-light mx-1" type="button">用户</button>
-            <input name="Nickname" type="text" class="form-control" placeholder="搜索">
+            <input id="searchKeyword" name="Nickname" type="text" class="form-control rounded-0" placeholder="搜索">
+            <button class="btn btn-outline-secondary text-light rounded-0" type="button"
+                    onclick="localStorage.setItem(`skw`, document.getElementById(`searchKeyword`).value);window.location.href=`/searchuser`">
+                搜用户
+            </button>
         </div>
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/hotWeibo.jsp">热门微博</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/searchUser.jsp" <% out.print(SignIn ? "" : "hidden");%>>推荐用户</a>
+                <a class="nav-link" href="/hotWeibo.jsp rounded-0">热门微博</a>
             </li>
         </ul>
         <a id="nickname" class="btn btn-outline-success text-white mr-2"
            href="/profile.jsp" <% out.print(SignIn ? "" : "hidden");%>><%out.print(nickname);%></a>
-        <a class="btn btn-outline-info text-white" href="/index.jsp" <% out.print(SignIn ? "" : "hidden");%>>主页</a>
-        <a class="btn btn-outline-info text-white" href="/signin" <% out.print(SignIn ? "hidden" : "");%>>登陆</a>
+        <a class="btn btn-outline-info text-white rounded-0" href="/index.jsp" <% out.print(SignIn ? "" : "hidden");%>>主页</a>
+        <a class="btn btn-outline-info text-white rounded-0"
+           href="/signin" <% out.print(SignIn ? "hidden" : "");%>>登陆</a>
     </div>
 </nav>

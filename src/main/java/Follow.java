@@ -51,12 +51,7 @@ public class Follow extends HttpServlet {
             stmt.setLong(4, (long) session.getAttribute("uid"));
             ResultSet followList = stmt.executeQuery();
             while (followList.next()) {
-                UserStruct u = new UserStruct();
-                u.Nickname = followList.getString("nickname");
-                u.ProfilePic = followList.getString("profile_picture");
-                u.Following = followList.getBoolean("my_follow");
-                u.FollowMe = followList.getBoolean("follow_me");
-                allFollow.add(u);
+                allFollow.add(new UserStruct(followList));
             }
             FollowResponseField followListRes = new FollowResponseField("Success", "获取成功", allFollow.toArray(new UserStruct[0]));
             JsonTool.response(resp, followListRes);
@@ -160,19 +155,6 @@ public class Follow extends HttpServlet {
 }
 
 
-class FollowPostField {
-    private static Pattern nickNamePattern = Pattern.compile("^[A-Za-z0-9@_\\-]{5,64}$");
-    String Nickname;
-
-    boolean Valid() {
-        if (!nickNamePattern.matcher(Nickname).matches()) {
-            return false;
-        }
-        Nickname = Nickname.toLowerCase();
-        return true;
-    }
-}
-
 class FollowResponseField extends ResponseField {
     UserStruct[] Follow;//关注我的和我关注的
 
@@ -184,5 +166,18 @@ class FollowResponseField extends ResponseField {
     FollowResponseField(String state, String msg, String detail, UserStruct[] follow) {
         super(state, msg, detail);
         Follow = follow;
+    }
+}
+
+class FollowPostField {
+    private static Pattern nickNamePattern = Pattern.compile("^[A-Za-z0-9@_\\-]{5,64}$");
+    String Nickname;
+
+    boolean Valid() {
+        if (!nickNamePattern.matcher(Nickname).matches()) {
+            return false;
+        }
+        Nickname = Nickname.toLowerCase();
+        return true;
     }
 }

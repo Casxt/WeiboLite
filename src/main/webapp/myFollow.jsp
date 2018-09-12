@@ -11,7 +11,6 @@
         <div id="myFollowList" class="col">
             <h2>我的关注</h2>
             <div class="list-group mb-2">
-
             </div>
 
         </div>
