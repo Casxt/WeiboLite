@@ -37,42 +37,22 @@ public class Follow extends HttpServlet {
             assert ds != null;
             Connection conn = ds.getConnection();
             //我关注的人
-            PreparedStatement stmt = conn.prepareStatement("SELECT " +
-                    "u1.nickname AS nickname," +
-                    "u1.profile_picture AS profile_picture " +
-                    "FROM " +
-                    "follow AS f1 " +
-                    "INNER JOIN PUBLIC.USER AS u1 ON u1.ID = f1.follow_id " +
-                    "WHERE " +
-                    "f1.user_id = ?;");
+            PreparedStatement stmt = conn.prepareStatement("SELECT\n" +
+                    "\tnickname,\n" +
+                    "\tprofile_picture,\n" +
+                    "\tEXISTS(SELECT * FROM follow WHERE follow_id = ? AND user_id=u.id) AS follow_me,\n" +
+                    "\tEXISTS(SELECT * FROM follow WHERE follow_id = u.id AND user_id= ? ) AS my_follow\n" +
+                    "FROM\n" +
+                    "\t( SELECT user_id AS ID FROM follow WHERE follow_id = ? UNION SELECT follow_id AS ID FROM follow WHERE user_id = ? ) AS f\n" +
+                    "\tJOIN PUBLIC.USER AS u ON f.ID = u.ID;");
             stmt.setLong(1, (long) session.getAttribute("uid"));
             ResultSet followList = stmt.executeQuery();
             while (followList.next()) {
                 UserStruct u = new UserStruct();
                 u.Nickname = followList.getString("nickname");
                 u.ProfilePic = followList.getString("profile_picture");
-                u.Following = true;
-                u.FollowMe = false;
-                allFollow.add(u);
-            }
-            //关注我的人
-            stmt = conn.prepareStatement("SELECT " +
-                    "u1.nickname AS nickname," +
-                    "u1.profile_picture AS profile_picture " +
-                    "FROM " +
-                    "follow AS f1 " +
-                    "INNER JOIN PUBLIC.USER AS u1 ON u1.ID = f1.user_id " +
-                    "WHERE " +
-                    "f1.follow_id = ?;");
-            stmt.setLong(1, (long) session.getAttribute("uid"));
-            followList = stmt.executeQuery();
-            conn.close();
-            while (followList.next()) {
-                UserStruct u = new UserStruct();
-                u.Nickname = followList.getString("nickname");
-                u.ProfilePic = followList.getString("profile_picture");
-                u.Following = false;
-                u.FollowMe = true;
+                u.Following = followList.getBoolean("my_follow");
+                u.FollowMe = followList.getBoolean("follow_me");
                 allFollow.add(u);
             }
             FollowResponseField followListRes = new FollowResponseField("Success", "获取成功", allFollow.toArray(new UserStruct[0]));

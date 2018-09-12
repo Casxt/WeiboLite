@@ -7,14 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Follow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UserStruct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/myFollowTemplate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/myFollow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/myFollow.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Follow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Follow.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -161,21 +155,21 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="19" />
-          <entry key="java" value="6570" />
+          <entry key="java" value="6602" />
           <entry key="js" value="130" />
           <entry key="jsp" value="3871" />
           <entry key="sql" value="92" />
-          <entry key="txt" value="178" />
+          <entry key="txt" value="184" />
           <entry key="xml" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="19" />
-          <entry key="JAVA" value="6570" />
+          <entry key="JAVA" value="6602" />
           <entry key="JSP" value="3871" />
           <entry key="JavaScript" value="130" />
-          <entry key="PLAIN_TEXT" value="178" />
+          <entry key="PLAIN_TEXT" value="184" />
           <entry key="SQL" value="60" />
           <entry key="Scratch" value="32" />
           <entry key="XML" value="35" />
@@ -192,7 +186,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/myFollow.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="117">
-              <caret line="28" column="131" selection-start-line="28" selection-start-column="131" selection-end-line="28" selection-end-column="131" />
+              <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
               <folding>
                 <element signature="e#1538#1559#0#HTML" expanded="true" />
                 <element signature="e#1285#1306#0#HTML" expanded="true" />
@@ -206,7 +200,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Follow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+              <caret line="45" column="87" selection-start-line="45" selection-start-column="87" selection-end-line="45" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -820,7 +814,7 @@
       <updated>1536413859464</updated>
       <workItem from="1536413870908" duration="610000" />
       <workItem from="1536414508650" duration="2018000" />
-      <workItem from="1536548783445" duration="82243000" />
+      <workItem from="1536548783445" duration="82332000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -948,11 +942,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536735163458</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Follow">
+      <created>1536742582401</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1536742582401</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84871000" />
+    <option name="totallyTimeSpent" value="84960000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1037,7 +1038,8 @@
     <MESSAGE value="修复一个bug" />
     <MESSAGE value="评论及转发" />
     <MESSAGE value="防止表单自动提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="防止表单自动提交" />
+    <MESSAGE value="Follow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Follow" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1411,7 +1413,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/myFollow.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
-          <caret line="28" column="131" selection-start-line="28" selection-start-column="131" selection-end-line="28" selection-end-column="131" />
+          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
           <folding>
             <element signature="e#1538#1559#0#HTML" expanded="true" />
             <element signature="e#1285#1306#0#HTML" expanded="true" />
@@ -1435,7 +1437,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Follow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <caret line="45" column="87" selection-start-line="45" selection-start-column="87" selection-end-line="45" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
