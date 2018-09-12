@@ -2,6 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/Comment.java" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Follow.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/SignIn.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/SignUp.java" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/Weibo.java" dialect="PostgreSQL" />

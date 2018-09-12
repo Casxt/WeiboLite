@@ -1,213 +1,108 @@
-<!DOCTYPE html>
-<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="utf-8" %>
-<html lang="en">
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css" crossorigin="anonymous" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/static/css/iconfont.css">
-    <!--This Style work for Line Page-->
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand mr-4" href="#">WeiboLite</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <div class="input-group mb-3 w-auto my-auto">
-            <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary dropdown-toggle text-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">微博</button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">微博</a>
-                    <a class="dropdown-item" href="#">用户</a>
-                </div>
-            </div>
-            <input type="text" class="form-control" placeholder="搜索">
-        </div>
-
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">热门微博</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">我的主页</a>
-            </li>
-        </ul>
-        <a class="btn btn-outline-success text-white mr-2" href="#">张楷</a>
-        <a class="btn btn-outline-info text-white" href="#">我的消息 <span class="badge badge-info">9</span></a>
-    </div>
-</nav>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ include file="parts/header.jsp" %>
 <main class="container mt-4 mb-4">
-
     <div class="row">
         <div class="col">
             <h2>关注我的</h2>
-            <div class="list-group mb-2">
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
+            <div id="followMeList" class="list-group mb-2">
+
             </div>
-            <nav aria-label="Page navigation">
-                <div class="btn-group pagination justify-content-center" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-secondary rounded-0">1</button>
-                    <button type="button" class="btn btn-outline-secondary rounded-0">2</button>
-                    <button type="button" class="btn btn-outline-secondary rounded-0">3</button>
-                    <button type="button" class="btn btn-outline-secondary rounded-0">4</button>
-                </div>
-            </nav>
         </div>
-        <div class="col">
+        <div id="myFollowList" class="col">
             <h2>我的关注</h2>
             <div class="list-group mb-2">
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                                <small><button class="btn btn-sm btn-primary rounded-0 float-right" type="button">取消关注</button></small>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                                <small><button class="btn btn-sm btn-primary rounded-0 float-right" type="button">取消关注</button></small>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                                <small><button class="btn btn-sm btn-primary rounded-0 float-right" type="button">取消关注</button></small>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                                <small><button class="btn btn-sm btn-primary rounded-0 float-right" type="button">取消关注</button></small>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action rounded-0">
-                    <div class="media">
-                        <img class="mr-3" src="/static/image/8499E7D9D3C81B2499327ED102952501.png"
-                             style="height: 5rem;" alt="Generic placeholder image">
-                        <div class="media-body">
-                            <div class="card-title mb-2">
-                                <span class="h5">张楷</span>
-                                <small><button class="btn btn-sm btn-primary rounded-0 float-right" type="button">取消关注</button></small>
-                            </div>
-                            <small class="my-0">个人简介，个人简介，个人简介，个人简介，个人简介，个人简介，个人简介个人简介，个人简介，个人简介，个人简介</small>
-                        </div>
-                    </div>
-                </a>
+
             </div>
-            <nav aria-label="Page navigation">
-                <div class="btn-group pagination justify-content-center" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-outline-secondary rounded-0">1</button>
-                </div>
-            </nav>
+
         </div>
+    </div>
+
+    <div id="followMeTemplate" hidden>
+        <a href="#" class="list-group-item list-group-item-action rounded-0">
+            <div class="media">
+                <img class="mr-3" src="http://cdn.v2ex.co/gravatar/{ProfilePic}?s=300&d=retro"
+                     style="height: 5rem;">
+                <div class="media-body">
+                    <div class="card-title mb-2">
+                        <span class="h5">{Nickname}</span>
+                        <small>
+                            <button class="btn btn-sm btn-primary rounded-0 float-right" type="button"
+                                    onclick="Follow('{Nickname}');">关注
+                            </button>
+                        </small>
+                    </div>
+                    <small class="my-0"></small>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div id="myFollowTemplate" hidden>
+        <a href="#" class="list-group-item list-group-item-action rounded-0">
+            <div class="media">
+                <img class="mr-3" src="http://cdn.v2ex.co/gravatar/{ProfilePic}?s=300&d=retro"
+                     style="height: 5rem;">
+                <div class="media-body">
+                    <div class="card-title mb-2">
+                        <span class="h5">{Nickname}</span>
+                        <small>
+                            <button class="btn btn-sm btn-primary rounded-0 float-right" type="button"
+                                    onclick="Disfollow('{Nickname}');">取消关注
+                            </button>
+                        </small>
+                    </div>
+                    <small class="my-0"></small>
+                </div>
+            </div>
+        </a>
     </div>
 </main>
 <script type="application/javascript">
 
+    async function Follow(nickname) {
+        const data = {
+            "Nickname": nickname,
+        };
+        const res = await JsonRequest("POST", "/follow", data);
+        if (res.State === "Success") {
+            window.location.reload();
+        } else {
+            alert(res.Msg);
+        }
+    }
+
+    async function Disfollow(nickname) {
+        const data = {
+            "Nickname": nickname,
+        };
+        const res = await JsonRequest("DELETE", "/follow", data);
+        if (res.State === "Success") {
+            window.location.reload();
+        } else {
+            alert(res.Msg);
+        }
+    }
+
+    async function LoadFollow() {
+        const res = await JsonRequest("GET", "/follow", undefined);
+        console.log(res);
+        if (res.State !== "Success") {
+            return;
+        }
+        //const nickname = document.getElementById("nickname").innerHTML;
+        const followMeTemplate = document.getElementById("followMeTemplate").innerHTML;
+        const myFollowTemplate = document.getElementById("myFollowTemplate").innerHTML;
+        const followMeList = document.getElementById("followMeList");
+        const myFollowList = document.getElementById("myFollowList");
+        for (const follow of res.Follow) {
+            if (follow.Following === true) {
+                myFollowList.innerHTML += myFollowTemplate.format(follow);
+            } else {
+                followMeList.innerHTML += followMeTemplate.format(follow);
+            }
+        }
+    }
+
+    window.onload = () => LoadFollow();
 </script>
-<script src="/static/js/jquery-3.3.1.min.js"></script>
-<script src="/static/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<%@ include file="parts/footer.jsp" %>

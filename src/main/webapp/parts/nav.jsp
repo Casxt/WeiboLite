@@ -16,16 +16,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!--搜索栏-->
         <div class="input-group mb-3 w-auto my-auto" <% out.print(SignIn ? "" : "hidden");%>>
+            <!--
             <div class="input-group-prepend">
                 <button class="btn btn-outline-secondary dropdown-toggle text-light" type="button"
-                        data-toggle="dropdown">微博
+                        data-toggle="dropdown">用户
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="/serachWeibo.jsp">微博</a>
                     <a class="dropdown-item" href="/serachUser.jsp">用户</a>
                 </div>
             </div>
-            <input type="text" class="form-control" placeholder="搜索">
+            -->
+            <button class="btn btn-outline-secondary text-light mx-1" type="button">用户</button>
+            <input name="Nickname" type="text" class="form-control" placeholder="搜索">
         </div>
 
         <ul class="navbar-nav mr-auto">

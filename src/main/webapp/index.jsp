@@ -60,7 +60,7 @@
                 <div class="btn-group btn-group-toggle mt-0 float-right" data-toggle="buttons">
                     <button class="btn btn-secondary btn-sm text-light rounded-0" data-toggle="collapse"
                             href="#Weibo-{WeiboID}-Comment" value="1"
-                            onclick="this.value===1?LoadComment({WeiboID},0):null;this.value?this.value=0:null;">
+                            onclick="this.value==='1'?LoadComment({WeiboID},0):null;this.value?this.value='0':null;">
                         <!--评论--><i class="iconfont icon-pinglun"></i>
                     </button>
                     <button class="btn btn-secondary btn-sm text-light rounded-0" data-toggle="modal"
@@ -95,6 +95,7 @@
             </div>
         </div>
     </div>
+
     <!-- 评论模板 -->
     <div id="commentTemplate" hidden>
         <div class="media mt-3 mb-2 pb-1 border-bottom border-dark">
