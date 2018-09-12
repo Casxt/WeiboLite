@@ -52,3 +52,18 @@ SELECT
 FROM
 	( SELECT user_id AS ID FROM follow WHERE follow_id = 14 UNION SELECT follow_id AS ID FROM follow WHERE user_id = 14 ) AS f
 	JOIN PUBLIC.USER AS u ON f.ID = u.ID;
+
+SELECT
+	weibo.ID AS ID,
+	u.nickname AS nickname,
+	u.profile_picture AS profile_picture,
+	CONTENT,
+	FORWARD,
+	weibo.is_deleted AS is_deleted,
+	weibo_date
+FROM
+	weibo
+	INNER JOIN PUBLIC.USER u ON weibo.user_id = u.ID
+ORDER BY
+	comment_count DESC
+	LIMIT 10 OFFSET 0;

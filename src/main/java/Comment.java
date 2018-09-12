@@ -115,6 +115,10 @@ public class Comment extends HttpServlet {
             }
             stmt.setString(4, jsonReq.Comment);
             stmt.executeUpdate();
+            //记录评论
+            stmt = conn.prepareStatement("UPDATE public.weibo SET comment_count=comment_count+1 WHERE id=?;");
+            stmt.setLong(1, jsonReq.WeiboID);
+            stmt.executeUpdate();
             conn.close();
             jsonRes = new ResponseField("Success", "评论成功");
         } catch (SQLException e) {
