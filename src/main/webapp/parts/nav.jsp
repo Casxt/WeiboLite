@@ -36,7 +36,7 @@
                 <a class="nav-link" href="/searchUser.jsp" <% out.print(SignIn ? "" : "hidden");%>>推荐用户</a>
             </li>
         </ul>
-        <a class="btn btn-outline-success text-white mr-2"
+        <a id="nickname" class="btn btn-outline-success text-white mr-2"
            href="/profile.jsp" <% out.print(SignIn ? "" : "hidden");%>><%out.print(nickname);%></a>
         <a class="btn btn-outline-info text-white" href="/index.jsp" <% out.print(SignIn ? "" : "hidden");%>>主页</a>
         <a class="btn btn-outline-info text-white" href="/signin" <% out.print(SignIn ? "hidden" : "");%>>登陆</a>

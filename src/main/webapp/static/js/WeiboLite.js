@@ -37,8 +37,8 @@ async function JsonRequest(httpmethod, url, data) {
     const request = new Request(url, {
         credentials: 'include', //接受response中的cookie
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
+            'Accept': 'application/json; charset=UTF-8',
+            'Content-Type': 'application/json; charset=UTF-8',
         },
         method: httpmethod,
         body: httpmethod === "GET" ? undefined : JSON.stringify(data),

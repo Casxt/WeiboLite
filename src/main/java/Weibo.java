@@ -70,15 +70,15 @@ public class Weibo extends HttpServlet {
             while (weiboList.next()) {
                 WeiboStruct w = new WeiboStruct().getInfo(weiboList);
                 long forward = weiboList.getLong("forward");
-                if (weiboList.wasNull()) {
-                    continue;
+                if (!weiboList.wasNull()) {
+                    stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE weibo.id = ?;");
+                    stmt.setLong(1, forward);
+                    ResultSet rs = stmt.executeQuery();
+                    rs.next();
+                    w.Forward = new WeiboStruct().getInfo(rs);
                 }
-                stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE weibo.id = ?;");
-                stmt.setLong(1, forward);
-                ResultSet rs = stmt.executeQuery();
-                rs.next();
-                w.Forward = new WeiboStruct().getInfo(rs);
                 weiboStructs.addLast(w);
+                int len = weiboStructs.size();
             }
             conn.close();
             WeiboResponseField weiboListRes = new WeiboResponseField("Success", "获取成功", weiboStructs.toArray(new WeiboStruct[3]));
@@ -98,6 +98,7 @@ public class Weibo extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.setCharacterEncoding("UTF-8");
         WeiboRequestField jsonReq = JsonTool.fetch(req, WeiboRequestField.class);
         ResponseField jsonRes;
 
@@ -129,6 +130,50 @@ public class Weibo extends HttpServlet {
             stmt.executeUpdate();
             conn.close();
             jsonRes = new ResponseField("Success", "发布成功");
+        } catch (SQLException e) {
+            switch (e.getSQLState()) {
+                default:
+                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
+            }
+        } catch (NamingException e) {
+            e.printStackTrace();
+            jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        }
+        JsonTool.response(resp, jsonRes);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        WeiboDeleteField jsonReq = JsonTool.fetch(req, WeiboDeleteField.class);
+        ResponseField jsonRes;
+
+        if (!jsonReq.Valid()) {
+            jsonRes = new ResponseField("Failed", "Invalid Parameter");
+            JsonTool.response(resp, jsonRes);
+            return;
+        }
+
+        //登陆校验
+        HttpSession session = req.getSession();
+        if (session.getAttribute("uid") == null) {
+            jsonRes = new ResponseField("Failed", "User Not Login");
+            JsonTool.response(resp, jsonRes);
+            return;
+        }
+
+        try {
+            DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
+            assert ds != null;
+            Connection conn = ds.getConnection();
+            PreparedStatement stmt = conn.prepareStatement("UPDATE weibo SET is_deleted=true WHERE user_id=? AND id=?");
+            stmt.setLong(1, (long) session.getAttribute("uid"));
+            stmt.setLong(2, jsonReq.WeiboID);
+            if (stmt.executeUpdate() == 1) {
+                jsonRes = new ResponseField("Success", "删除成功");
+            } else {
+                jsonRes = new ResponseField("Failed", "删除失败");
+            }
+            conn.close();
         } catch (SQLException e) {
             switch (e.getSQLState()) {
                 default:
@@ -177,6 +222,15 @@ class WeiboResponseField extends ResponseField {
         super(state, msg, detail);
         WeiboList = weiboList;
     }
+}
+
+class WeiboDeleteField {
+    long WeiboID;
+
+    boolean Valid() {
+        return WeiboID > 0;
+    }
+
 }
 
 class WeiboStruct {

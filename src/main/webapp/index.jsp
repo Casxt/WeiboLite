@@ -62,7 +62,8 @@
                             href="#Weibo-{WeiboID}-Comment">
                         <!--评论--><i class="iconfont icon-pinglun"></i>
                     </button>
-                    <a class="btn btn-sm btn-secondary text-light rounded-0" {WeiboDeleteHidden}>
+                    <a class="btn btn-sm btn-secondary text-light rounded-0" onclick="DeleteWeibo({WeiboID});"
+                       {WeiboDeleteHidden}>
                         <!--删除--><i class="iconfont icon-guanbi"></i>
                     </a>
                 </div>
@@ -114,18 +115,18 @@
                     </div>
                     <!-- 评论翻页 -->
                     <div class="btn-toolbar justify-content-center mt-3" role="toolbar">
-                        <div class="btn-group btn-group-sm" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-outline-secondary rounded-0">1</button>
-                            <button type="button" class="btn btn-outline-secondary rounded-0">2</button>
-                            <button type="button" class="btn btn-outline-secondary rounded-0">3</button>
-                            <button type="button" class="btn btn-outline-secondary rounded-0">4</button>
-                        </div>
+                        <button id="Weibo-{WeiboID}-LoadComment" value="0" type="button"
+                                class="btn btn-secondary btn-lg btn-block rounded-0"
+                                onclick="LoadComment({WeiboID},this);">加载更多
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-secondary btn-lg btn-block rounded-0">加载更多</button>
+    <button id="loadWeibo" value="0" type="button" class="btn btn-secondary btn-lg btn-block rounded-0"
+            onclick="LoadWeibo();">加载更多
+    </button>
 </main>
 
 <!--用户信息展示modal-->
@@ -162,6 +163,19 @@
         reader.readAsDataURL(file.files[count]);
     }
 
+    async function DeleteWeibo(weiboid) {
+        const data = {
+            "WeiboID": weiboid,
+        };
+        console.log(weiboid);
+        const res = await JsonRequest("DELETE", "/weibo", data);
+        if (res.State === "Success") {
+            window.location.reload();
+        } else {
+            alert("该条微博不属于你");
+        }
+    }
+
     async function PublishWeibo(button) {
         const B = new AnimeButton(button);
         const formData = new FormData(document.getElementById("publishWeibo-Form"));
@@ -185,29 +199,34 @@
     }
 
     async function LoadWeibo() {
-        const res = await JsonRequest("GET", "/weibo?Num=20&Offset=0", undefined);
+        const offset = document.getElementById("loadWeibo").value;
+        const res = await JsonRequest("GET", "/weibo?Num=5&Offset=" + offset, undefined);
+        document.getElementById("loadWeibo").value += 5;
         console.log(res);
         if (res.State !== "Success") {
             return;
         }
-
+        const nickname = document.getElementById("nickname").innerHTML;
         const forwardTemplate = document.getElementById("forwardTemplate").innerHTML;
         const weiboTemplate = document.getElementById("weiboTemplate").innerHTML;
         let weiboList = document.getElementById("weiboList");
         for (let weibo of res.WeiboList) {
             console.log(weibo);
             if (weibo.hasOwnProperty("Forward")) {
-                weibo.Forward.Time = FormatTime(new Date(weibo.Forward.Time).toISOString());
+                weibo.Forward.Time = FormatTime(new Date(weibo.Forward.Time).toLocaleString());
                 weibo.Forward = forwardTemplate.format(weibo.Forward);
             } else {
                 weibo.Forward = "";
             }
-            weibo.Time = FormatTime(new Date(weibo.Time).toISOString());
+            if (weibo.Nickname === nickname) {
+                weibo.WeiboDeleteHidden = "";
+            } else {
+                weibo.WeiboDeleteHidden = "hidden";
+            }
+            weibo.Time = FormatTime(new Date(weibo.Time).toLocaleString());
             weiboList.innerHTML += weiboTemplate.format(weibo);
         }
-
     }
-
     window.onload = () => LoadWeibo();
 </script>
 <%@ include file="parts/footer.jsp" %>
