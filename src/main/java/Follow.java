@@ -46,6 +46,9 @@ public class Follow extends HttpServlet {
                     "\t( SELECT user_id AS ID FROM follow WHERE follow_id = ? UNION SELECT follow_id AS ID FROM follow WHERE user_id = ? ) AS f\n" +
                     "\tJOIN PUBLIC.USER AS u ON f.ID = u.ID;");
             stmt.setLong(1, (long) session.getAttribute("uid"));
+            stmt.setLong(2, (long) session.getAttribute("uid"));
+            stmt.setLong(3, (long) session.getAttribute("uid"));
+            stmt.setLong(4, (long) session.getAttribute("uid"));
             ResultSet followList = stmt.executeQuery();
             while (followList.next()) {
                 UserStruct u = new UserStruct();

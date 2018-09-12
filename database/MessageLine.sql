@@ -42,3 +42,13 @@ INSERT INTO comment (user_id, weibo_id, comment_id, comment) VALUES (?, ?, ?, ?)
 UPDATE weibo set is_dalete=TRUE WHERE id=?;
 --删除评论
 UPDATE comment set is_dalete=TRUE WHERE id=?;
+
+--获取关注信息
+SELECT
+	nickname,
+	profile_picture,
+	EXISTS(SELECT * FROM follow WHERE follow_id = 14 AND user_id=u.id) AS follow_me,
+	EXISTS(SELECT * FROM follow WHERE follow_id = u.id AND user_id=14) AS my_follow
+FROM
+	( SELECT user_id AS ID FROM follow WHERE follow_id = 14 UNION SELECT follow_id AS ID FROM follow WHERE user_id = 14 ) AS f
+	JOIN PUBLIC.USER AS u ON f.ID = u.ID;

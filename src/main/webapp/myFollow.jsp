@@ -25,8 +25,8 @@
                 <div class="media-body">
                     <div class="card-title mb-2">
                         <span class="h5">{Nickname}</span>
-                        <small>
-                            <button class="btn btn-sm btn-primary rounded-0 float-right" type="button"
+                        <small {followuserhidden}>
+                            <button class="btn btn-sm btn-primary rounded-0 float-right " type="button"
                                     onclick="Follow('{Nickname}');">关注
                             </button>
                         </small>
@@ -94,10 +94,17 @@
         const myFollowTemplate = document.getElementById("myFollowTemplate").innerHTML;
         const followMeList = document.getElementById("followMeList");
         const myFollowList = document.getElementById("myFollowList");
-        for (const follow of res.Follow) {
+        for (let follow of res.Follow) {
+            if (follow.Following === true) {
+                follow.followuserhidden = "hidden";
+            } else {
+                follow.followuserhidden = "";
+            }
+
             if (follow.Following === true) {
                 myFollowList.innerHTML += myFollowTemplate.format(follow);
-            } else {
+            }
+            if (follow.FollowMe === true) {
                 followMeList.innerHTML += followMeTemplate.format(follow);
             }
         }
