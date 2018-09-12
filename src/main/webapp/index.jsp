@@ -142,6 +142,7 @@
                                class="form-control w-100 ml-0 rounded-0"
                                placeholder="评论">
                     </div>
+                    <input type="text" value="防自动提交" hidden>
                     <input id="commentModal-form-weiboid" name="WeiboID" type="hidden" value="">
                     <input id="commentModal-form-commentid" name="CommentID" type="hidden" value="">
                     <button type="button" class="btn btn-sm btn-primary mx-1 rounded-0" onclick="PublishComment(this);">
@@ -162,8 +163,9 @@
                     <div class="form-group input-group-sm w-75">
                         <input id="forwardModal-form-comment" name="Content" type="text"
                                class="form-control w-100 ml-0 rounded-0"
-                               placeholder="评论">
+                               placeholder="转发">
                     </div>
+                    <input type="text" value="防自动提交" hidden>
                     <input id="forwardModal-form-forward" name="Forward" type="hidden" value="">
                     <button type="button" class="btn btn-sm btn-primary mx-1 rounded-0"
                             onclick="PublishWeibo(this, 'forwardModal-form');">
