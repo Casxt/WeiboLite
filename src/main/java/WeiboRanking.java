@@ -48,6 +48,8 @@ public class WeiboRanking extends HttpServlet {
                     "FROM\n" +
                     "\tweibo\n" +
                     "\tINNER JOIN PUBLIC.USER u ON weibo.user_id = u.ID \n" +
+                    "WHERE\n" +
+                    "\tweibo.is_deleted = FALSE \n" +
                     "ORDER BY\n" +
                     "\tcomment_count DESC \n" +
                     "\tLIMIT 10 OFFSET 0;");
