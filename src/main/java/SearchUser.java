@@ -1,3 +1,5 @@
+import org.apache.commons.dbutils.DbUtils;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
@@ -42,13 +44,14 @@ public class SearchUser extends HttpServlet {
             JsonTool.response(resp, jsonRes);
             return;
         }
-
+        Connection conn = null;
+        PreparedStatement stmt = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
+            conn = ds.getConnection();
             //我关注的人
-            PreparedStatement stmt = conn.prepareStatement("SELECT\n" +
+            stmt = conn.prepareStatement("SELECT\n" +
                     "\tnickname,\n" +
                     "\tprofile_picture,\n" +
                     "\tEXISTS(SELECT * FROM follow WHERE follow_id = ? AND user_id=u.id) AS follow_me,\n" +
@@ -72,6 +75,9 @@ public class SearchUser extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }

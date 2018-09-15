@@ -1,3 +1,5 @@
+import org.apache.commons.dbutils.DbUtils;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
@@ -38,11 +40,14 @@ public class Comment extends HttpServlet {
             return;
         }
 
+        Connection conn = null;
+        ResultSet commentList = null;
+        PreparedStatement stmt = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT " +
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement("SELECT " +
                     "com.id AS id," +
                     "com.weibo_id AS weibo_id," +
                     "u.nickname AS nickname," +
@@ -61,8 +66,7 @@ public class Comment extends HttpServlet {
             stmt.setLong(1, Long.parseLong(weiboID));
             stmt.setInt(2, Integer.parseInt(num));
             stmt.setInt(3, Integer.parseInt(offset));
-            ResultSet commentList = stmt.executeQuery();
-            conn.close();
+            commentList = stmt.executeQuery();
             while (commentList.next()) {
                 commentStructs.add(new CommentStruct(commentList));
             }
@@ -78,6 +82,10 @@ public class Comment extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(commentList);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -144,20 +152,9 @@ public class Comment extends HttpServlet {
                     jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
             }
         } finally {
-            try {
-                if (insertStmt != null) {
-                    insertStmt.close();
-                }
-                if (updateStmt != null) {
-                    updateStmt.close();
-                }
-                if (conn != null) {
-                    conn.setAutoCommit(true);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
-            }
+            DbUtils.closeQuietly(insertStmt);
+            DbUtils.closeQuietly(updateStmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -180,12 +177,13 @@ public class Comment extends HttpServlet {
             JsonTool.response(resp, jsonRes);
             return;
         }
-
+        Connection conn = null;
+        PreparedStatement stmt = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("UPDATE comment SET is_deleted=true WHERE user_id=? AND id=?");
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement("UPDATE comment SET is_deleted=true WHERE user_id=? AND id=?");
             stmt.setLong(1, (long) session.getAttribute("uid"));
             stmt.setLong(2, jsonReq.CommentID);
             if (stmt.executeUpdate() == 1) {
@@ -202,6 +200,9 @@ public class Comment extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }

@@ -1,3 +1,5 @@
+import org.apache.commons.dbutils.DbUtils;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
@@ -95,7 +97,6 @@ public class Follow extends HttpServlet {
             stmt.setLong(1, (long) session.getAttribute("uid"));
             stmt.setString(2, jsonReq.Nickname);
             stmt.executeUpdate();
-            conn.close();
             jsonRes = new ResponseField("Success", "关注成功");
         } catch (SQLException e) {
             switch (e.getSQLState()) {
@@ -127,12 +128,13 @@ public class Follow extends HttpServlet {
             JsonTool.response(resp, jsonRes);
             return;
         }
-
+        PreparedStatement stmt = null;
+        Connection conn = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("DELETE FROM public.follow AS f WHERE f.user_id=? AND f.follow_id IN (SELECT id FROM public.user WHERE nickname=?);");
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement("DELETE FROM public.follow AS f WHERE f.user_id=? AND f.follow_id IN (SELECT id FROM public.user WHERE nickname=?);");
             stmt.setLong(1, (long) session.getAttribute("uid"));
             stmt.setString(2, jsonReq.Nickname);
             if (stmt.executeUpdate() == 1) {
@@ -140,7 +142,6 @@ public class Follow extends HttpServlet {
             } else {
                 jsonRes = new ResponseField("Success", "取消关注失败");
             }
-            conn.close();
         } catch (SQLException e) {
             switch (e.getSQLState()) {
                 default:
@@ -149,6 +150,9 @@ public class Follow extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }

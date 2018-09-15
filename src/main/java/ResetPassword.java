@@ -1,4 +1,6 @@
 
+import org.apache.commons.dbutils.DbUtils;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
@@ -45,14 +47,15 @@ public class ResetPassword extends HttpServlet {
         UUID uuid = UUID.randomUUID();
         String salt = SHA256.hash256(uuid.toString());
         String saltPass = SHA256.hash256(salt + jsonReq.NewPassword);
-
+        Connection conn = null;
+        PreparedStatement selStmt = null, updateStmt = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("SELECT  salt,salt_pass FROM public.user WHERE id=?;");
-            stmt.setLong(1, (long) session.getAttribute("uid"));
-            ResultSet rs = stmt.executeQuery();
+            conn = ds.getConnection();
+            selStmt = conn.prepareStatement("SELECT  salt,salt_pass FROM public.user WHERE id=?;");
+            selStmt.setLong(1, (long) session.getAttribute("uid"));
+            ResultSet rs = selStmt.executeQuery();
             rs.next();
 
             String userPass = SHA256.hash256(rs.getString("salt") + jsonReq.OldPassword);
@@ -64,16 +67,15 @@ public class ResetPassword extends HttpServlet {
                 return;
             }
 
-            stmt = conn.prepareStatement("UPDATE public.user SET salt=?, salt_pass=? WHERE id=?;");
-            stmt.setString(1, salt);
-            stmt.setString(2, saltPass);
-            stmt.setLong(3, (long) session.getAttribute("uid"));
-            if (stmt.executeUpdate() == 1) {
+            updateStmt = conn.prepareStatement("UPDATE public.user SET salt=?, salt_pass=? WHERE id=?;");
+            updateStmt.setString(1, salt);
+            updateStmt.setString(2, saltPass);
+            updateStmt.setLong(3, (long) session.getAttribute("uid"));
+            if (updateStmt.executeUpdate() == 1) {
                 jsonRes = new ResponseField("Success", "重置成功");
             } else {
                 jsonRes = new ResponseField("Failed", "重置失败");
             }
-            conn.close();
         } catch (SQLException e) {
             switch (e.getSQLState()) {
                 default:
@@ -82,6 +84,10 @@ public class ResetPassword extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(selStmt);
+            DbUtils.closeQuietly(updateStmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }

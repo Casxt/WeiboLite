@@ -8,10 +8,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Follow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Follow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ResetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ResetPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SearchUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SearchUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Weibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Weibo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sign.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -138,9 +141,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gradle" value="8" />
+          <entry key="gradle" value="9" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="92" />
+          <entry key="java" value="98" />
           <entry key="js" value="10" />
           <entry key="jsp" value="54" />
           <entry key="profile" value="2" />
@@ -153,8 +156,8 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="5" />
-          <entry key="Groovy" value="8" />
-          <entry key="JAVA" value="92" />
+          <entry key="Groovy" value="9" />
+          <entry key="JAVA" value="98" />
           <entry key="JSP" value="54" />
           <entry key="JavaScript" value="10" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -166,22 +169,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gradle" value="19" />
-          <entry key="java" value="7724" />
+          <entry key="gradle" value="20" />
+          <entry key="java" value="7987" />
           <entry key="js" value="130" />
           <entry key="jsp" value="4742" />
           <entry key="sql" value="105" />
-          <entry key="txt" value="286" />
+          <entry key="txt" value="297" />
           <entry key="xml" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Groovy" value="19" />
-          <entry key="JAVA" value="7724" />
+          <entry key="Groovy" value="20" />
+          <entry key="JAVA" value="7987" />
           <entry key="JSP" value="4742" />
           <entry key="JavaScript" value="130" />
-          <entry key="PLAIN_TEXT" value="286" />
+          <entry key="PLAIN_TEXT" value="297" />
           <entry key="SQL" value="73" />
           <entry key="Scratch" value="32" />
           <entry key="XML" value="35" />
@@ -194,11 +197,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Sign.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1545">
-              <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+            <state relative-caret-position="652">
+              <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -218,23 +221,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Weibo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="119" column="49" selection-start-line="119" selection-start-column="49" selection-end-line="119" selection-end-column="49" />
+            <state relative-caret-position="392">
+              <caret line="197" column="13" lean-forward="true" selection-start-line="197" selection-start-column="13" selection-end-line="197" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#doDelete#0;class#Weibo#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="158" column="117" selection-start-line="158" selection-start-column="117" selection-end-line="158" selection-end-column="117" />
-              <folding>
-                <element signature="method#doGet#0;class#Comment#0" />
               </folding>
             </state>
           </provider>
@@ -257,6 +247,7 @@
       <find>CommentDeleteHidden</find>
       <find>forwardTemplate</find>
       <find>signUp</find>
+      <find>conn.close</find>
     </findStrings>
     <replaceStrings>
       <replace>commentdeletehidden</replace>
@@ -449,9 +440,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6145820769776" />
+        <entry key="$PROJECT_DIR$" value="6146239385416" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="2020391250" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="1689526237" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2007532874" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="4050939605" />
       </map>
@@ -579,7 +570,6 @@
         <option value="$PROJECT_DIR$/src/main/java/SHA256.java" />
         <option value="$PROJECT_DIR$/src/main/java/JsonFetcher.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/context.xml" />
         <option value="$PROJECT_DIR$/database/WeiboLiteSimplify/CreateWeibo.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d134d5ac-82bf-42ba-9a1f-0c6542b95673/console_1.sql" />
@@ -592,11 +582,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/myFollow-template.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/UserStruct.java" />
         <option value="$PROJECT_DIR$/src/main/java/FollowResponseField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Follow.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SearchUser.java" />
         <option value="$PROJECT_DIR$/database/MessageLine.sql" />
         <option value="$PROJECT_DIR$/src/main/java/WeiboRanking.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ResetPassword.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/parts/nav.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/myFollow.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
@@ -606,9 +593,13 @@
         <option value="$PROJECT_DIR$/src/main/java/SignOut.java" />
         <option value="$PROJECT_DIR$/src/main/java/SignUp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/sign.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/Sign.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Weibo.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/Comment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Follow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Weibo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ResetPassword.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SearchUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Sign.java" />
       </list>
     </option>
   </component>
@@ -687,6 +678,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Follow.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SearchUser.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
@@ -876,7 +883,7 @@
       <workItem from="1536893164458" duration="1526000" />
       <workItem from="1536919247424" duration="1400000" />
       <workItem from="1536993539606" duration="35000" />
-      <workItem from="1536993722187" duration="2960000" />
+      <workItem from="1536993722187" duration="4513000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -1067,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536995680839</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="transection">
+      <created>1536997339350</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1536997339350</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1076,7 +1090,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104935000" />
+    <option name="totallyTimeSpent" value="106488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1145,7 +1159,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="JSP框架化" />
     <MESSAGE value="注册" />
     <MESSAGE value="JsonFetcher and SHA256" />
     <MESSAGE value="rename" />
@@ -1170,7 +1183,8 @@
     <MESSAGE value="SignRestful" />
     <MESSAGE value="WeiboStruct To package" />
     <MESSAGE value="make innerclass" />
-    <option name="LAST_COMMIT_MESSAGE" value="make innerclass" />
+    <MESSAGE value="transection" />
+    <option name="LAST_COMMIT_MESSAGE" value="transection" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1183,20 +1197,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/WeiboLiteSimplify/CreateComment.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="58" selection-end-line="16" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/WeiboLiteSimplify/CreateWeiboImage.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="7" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/drop/profile.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1615">
@@ -1352,13 +1352,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FollowResponseField.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Follow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="113" selection-start-line="113" selection-end-line="120" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/TestTool/Top10.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1373,24 +1366,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SearchUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="55" column="68" lean-forward="true" selection-start-line="55" selection-start-column="68" selection-end-line="55" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/User.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ResetPassword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resetPassword.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1083">
@@ -1494,33 +1470,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Sign.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+        <state relative-caret-position="456">
+          <caret line="202" column="9" selection-start-line="202" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/OneDrive/Code/java/Lab/ChatRoom/.gradle/caches/modules-2/files-2.1/commons-dbutils/commons-dbutils/1.7/38e00df900c6c0dd01dec42ad411ff44de10ac0b/commons-dbutils-1.7-sources.jar!/org/apache/commons/dbutils/DbUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ResetPassword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SearchUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Follow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="77" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Weibo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="119" column="49" selection-start-line="119" selection-start-column="49" selection-end-line="119" selection-end-column="49" />
+        <state relative-caret-position="392">
+          <caret line="197" column="13" lean-forward="true" selection-start-line="197" selection-start-column="13" selection-end-line="197" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#doDelete#0;class#Weibo#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Sign.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="158" column="117" selection-start-line="158" selection-start-column="117" selection-end-line="158" selection-end-column="117" />
+        <state relative-caret-position="652">
+          <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
           <folding>
-            <element signature="method#doGet#0;class#Comment#0" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

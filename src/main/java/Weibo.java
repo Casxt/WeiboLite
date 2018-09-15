@@ -1,3 +1,5 @@
+import org.apache.commons.dbutils.DbUtils;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
@@ -45,12 +47,13 @@ public class Weibo extends HttpServlet {
             return;
         }
 
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        ResultSet weiboList = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt;
-            ResultSet weiboList;
+            conn = ds.getConnection();
             if (user == null) {
                 stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE user_id = ANY( SELECT follow_id FROM follow WHERE user_id= ? UNION SELECT ? as follow_id  ) ORDER BY weibo_date DESC LIMIT ? OFFSET ?;");
                 stmt.setLong(1, (long) session.getAttribute("uid"));
@@ -71,15 +74,29 @@ public class Weibo extends HttpServlet {
                 WeiboStruct w = new WeiboStruct(weiboList);
                 long forward = weiboList.getLong("forward");
                 if (!weiboList.wasNull()) {
-                    stmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE weibo.id = ?;");
-                    stmt.setLong(1, forward);
-                    ResultSet rs = stmt.executeQuery();
-                    rs.next();
-                    w.Forward = new WeiboStruct(rs);
+                    ResultSet rs = null;
+                    PreparedStatement subStmt = null;
+                    try {
+                        subStmt = conn.prepareStatement("SELECT weibo.id as id, u.nickname as nickname,  u.profile_picture as profile_picture, content, forward, weibo.is_deleted as is_deleted, weibo_date FROM weibo INNER JOIN public.user u on weibo.user_id = u.id WHERE weibo.id = ?;");
+                        subStmt.setLong(1, forward);
+                        rs = subStmt.executeQuery();
+                        rs.next();
+                        w.Forward = new WeiboStruct(rs);
+                        rs.close();
+                    } catch (SQLException e) {
+                        switch (e.getSQLState()) {
+                            default:
+                                jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
+                        }
+                        return;
+                    } finally {
+                        DbUtils.closeQuietly(weiboList);
+                        DbUtils.closeQuietly(rs);
+                        DbUtils.closeQuietly(subStmt);
+                    }
                 }
                 weiboStructs.addLast(w);
             }
-            conn.close();
             WeiboResponseField weiboListRes = new WeiboResponseField("Success", "获取成功", weiboStructs.toArray(new WeiboStruct[0]));
             JsonTool.response(resp, weiboListRes);
             return;
@@ -91,6 +108,9 @@ public class Weibo extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -113,12 +133,13 @@ public class Weibo extends HttpServlet {
             JsonTool.response(resp, jsonRes);
             return;
         }
-
+        PreparedStatement stmt = null;
+        Connection conn = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO public.weibo (user_id,content,forward) VALUES (?,?,?);");
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement("INSERT INTO public.weibo (user_id,content,forward) VALUES (?,?,?);");
             stmt.setLong(1, (long) session.getAttribute("uid"));
             stmt.setString(2, jsonReq.Content);
             if (jsonReq.Forward == 0) {
@@ -127,7 +148,6 @@ public class Weibo extends HttpServlet {
                 stmt.setLong(3, jsonReq.Forward);
             }
             stmt.executeUpdate();
-            conn.close();
             jsonRes = new ResponseField("Success", "发布成功");
         } catch (SQLException e) {
             switch (e.getSQLState()) {
@@ -137,6 +157,9 @@ public class Weibo extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -159,12 +182,13 @@ public class Weibo extends HttpServlet {
             JsonTool.response(resp, jsonRes);
             return;
         }
-
+        PreparedStatement stmt = null;
+        Connection conn = null;
         try {
             DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
             assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("UPDATE weibo SET is_deleted=true WHERE user_id=? AND id=?");
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement("UPDATE weibo SET is_deleted=true WHERE user_id=? AND id=?");
             stmt.setLong(1, (long) session.getAttribute("uid"));
             stmt.setLong(2, jsonReq.WeiboID);
             if (stmt.executeUpdate() == 1) {
@@ -172,7 +196,6 @@ public class Weibo extends HttpServlet {
             } else {
                 jsonRes = new ResponseField("Failed", "删除失败");
             }
-            conn.close();
         } catch (SQLException e) {
             switch (e.getSQLState()) {
                 default:
@@ -181,6 +204,9 @@ public class Weibo extends HttpServlet {
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            DbUtils.closeQuietly(stmt);
+            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
