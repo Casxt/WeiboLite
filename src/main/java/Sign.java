@@ -21,6 +21,7 @@ public class Sign extends HttpServlet {
         req.getRequestDispatcher("sign.jsp").forward(req, resp);
     }
 
+    //注册
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         SignUpRequestField jsonReq = JsonTool.fetch(req, SignUpRequestField.class);
@@ -63,6 +64,7 @@ public class Sign extends HttpServlet {
         JsonTool.response(resp, jsonRes);
     }
 
+    //登陆
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         SignInRequestField jsonReq = JsonTool.fetch(req, SignInRequestField.class);
@@ -104,6 +106,12 @@ public class Sign extends HttpServlet {
             jsonRes = new ResponseField("Failed", "服务器资源不足", e.getExplanation());
         }
         JsonTool.response(resp, jsonRes);
+    }
+
+    //退出
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
+
     }
 }
 
