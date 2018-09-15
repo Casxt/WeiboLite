@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.regex.Pattern;
 
 @WebServlet(description = "User Sign In", urlPatterns = {"/signin"}, loadOnStartup = 1)
 public class SignIn extends HttpServlet {
@@ -22,7 +21,7 @@ public class SignIn extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        SignInRequestField jsonReq = JsonTool.fetch(req, SignInRequestField.class);
+        Sign.SignInRequestField jsonReq = JsonTool.fetch(req, Sign.SignInRequestField.class);
         ResponseField jsonRes;
 
         if (!jsonReq.Vaild()) {
@@ -64,22 +63,3 @@ public class SignIn extends HttpServlet {
     }
 }
 
-class SignInRequestField {
-    private static Pattern nickNamePattern = Pattern.compile("^[A-Za-z0-9@_\\-]{5,64}$");
-    private static Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9]{64}$");
-    String Nickname;
-    String Password;
-
-    public boolean Vaild() {
-
-        if (Nickname != null && !nickNamePattern.matcher(Nickname).matches()) {
-            return false;
-        }
-        if (Password != null && !passwordPattern.matcher(Password).matches()) {
-            return false;
-        }
-        Nickname = Nickname.toLowerCase();
-        Password = Password.toLowerCase();
-        return true;
-    }
-}

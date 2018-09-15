@@ -69,7 +69,7 @@
                         <!--转发--><i class="iconfont icon-zhuanfa"></i>
                     </button>
                     <button class="btn btn-sm btn-secondary text-light rounded-0" onclick="DeleteWeibo({WeiboID});"
-                       {WeiboDeleteHidden}>
+                            {weibodeletehidden}>
                         <!--删除--><i class="iconfont icon-guanbi"></i>
                     </button>
                 </div>
@@ -108,7 +108,7 @@
                             <i class="iconfont icon-pinglun"></i>
                         </button>
                         <button class=" btn btn-sm bg-white mx-1 p-0 rounded-0"
-                                onclick="DeleteComment({WeiboID},{CommentID});" {CommentDeleteHidden}>
+                                onclick="DeleteComment({WeiboID},{CommentID});" {commentdeletehidden}>
                             <i class="iconfont icon-guanbi"></i>
                         </button>
                     </div>
@@ -206,9 +206,11 @@
         const formData = new FormData(document.getElementById("commentModal-form"));
         let data = formData.ToArray();
         if (data.Comment.length > 255) {
-            B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过多", 1000);
+            B.Alert("btn btn-sm btn-danger mx-1 rounded-0 disabled", "字数过多", 1000);
+            return;
         } else if (data.Comment.length < 2) {
-            B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过少", 1000);
+            B.Alert("btn btn-sm btn-danger mx-1 rounded-0 disabled", "字数过少", 1000);
+            return;
         }
         const Closer = B.OnLoding("disabled", "评论中...");
         const res = await JsonRequest("POST", "/comment", data);
@@ -244,9 +246,9 @@
                 comment.CommentNickname = "";
             }
             if (comment.Nickname === nickname) {
-                comment.CommentDeleteHidden = "";
+                comment.commentdeletehidden = "";
             } else {
-                comment.CommentDeleteHidden = "";//hidden
+                comment.commentdeletehidden = "";//hidden
             }
             commentList.innerHTML += commentTemplate.format(comment);
         }
@@ -283,10 +285,10 @@
         const formData = new FormData(document.getElementById(formName));
         let data = formData.ToArray();
         if (data.Content.length > 255) {
-            B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过多", 1000);
+            B.Alert("btn btn-sm btn-danger mx-1 rounded-0 disabled", "字数过多", 1000);
             return;
         } else if (data.Content.length < 5) {
-            B.Alert("btn btn-danger rounded-0 float-right disabled", "字数过少", 1000);
+            B.Alert("btn btn-sm btn-danger mx-1 rounded-0 disabled", "字数过少", 1000);
             return;
         }
         data.Imgs = [];
@@ -306,7 +308,10 @@
         const res = await JsonRequest("GET", "/weibo?Num=5&Offset=" + offset, undefined);
         console.log(res);
         if (res.State !== "Success") {
-            return;
+            if (res.Msg === "User Not Login") {
+                window.location.href = "/signin";
+                return;
+            }
         }
         const nickname = document.getElementById("nickname").innerHTML;
         const forwardTemplate = document.getElementById("forwardTemplate").innerHTML;
@@ -323,9 +328,9 @@
                 weibo.Forward = "";
             }
             if (weibo.Nickname === nickname) {
-                weibo.WeiboDeleteHidden = "";
+                weibo.weibodeletehidden = "";
             } else {
-                weibo.WeiboDeleteHidden = "hidden";
+                weibo.weibodeletehidden = "hidden";
             }
             weibo.Time = FormatTime(new Date(weibo.Time).toLocaleString());
             weiboList.innerHTML += weiboTemplate.format(weibo);

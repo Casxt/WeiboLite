@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ include file="parts/header.jsp" %>
+<%@ include file="../parts/header.jsp" %>
 <main class="container w-50 my-4">
     <!--微博发布栏-->
     <div class="shadow card p-1 mb-3 bg-light rounded-0">
@@ -851,4 +851,4 @@
 
     window.onload = () => LoadWeibo();
 </script>
-<%@ include file="parts/footer.jsp" %>
+<%@ include file="../parts/footer.jsp" %>

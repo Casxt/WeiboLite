@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ include file="parts/header.jsp" %>
+<%@ include file="../parts/header.jsp" %>
 <main class="container mt-4 mb-4">
     <div class="row">
         <div class="col">
@@ -182,4 +182,4 @@
 <script type="application/javascript">
 
 </script>
-<%@ include file="parts/footer.jsp" %>
+<%@ include file="../parts/footer.jsp" %>

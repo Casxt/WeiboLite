@@ -65,6 +65,10 @@
         if (res.State === "Success") {
             window.location.reload();
         } else {
+            if (res.Msg === "User Not Login") {
+                window.location.href = "/signin";
+                return;
+            }
             alert(res.Msg);
         }
     }

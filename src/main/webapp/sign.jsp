@@ -100,9 +100,9 @@
 
     async function submitSignIn(button) {
         const B = new AnimeButton(button);
-        const formData = new FormData(document.getElementById("signUp-Form"));
+        const formData = new FormData(document.getElementById("signIn-Form"));
         let data = formData.ToArray();
-
+        console.log(data);
         let md = forge.md.sha256.create();
         md.update(data.Password);
         data.Password = md.digest().toHex();

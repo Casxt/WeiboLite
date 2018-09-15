@@ -28,8 +28,8 @@
                 <a class="nav-link" href="/hotWeibo.jsp rounded-0">热门微博</a>
             </li>
         </ul>
-        <a id="nickname" class="btn btn-outline-success text-white mr-2"
-           href="/profile.jsp" <% out.print(SignIn ? "" : "hidden");%>><%out.print(nickname);%></a>
+        <a id="nickname" class="btn btn-outline-success text-white mr-2 rounded-0"
+           href="/myFollow.jsp" <% out.print(SignIn ? "" : "hidden");%>><%out.print(nickname);%></a>
         <a class="btn btn-outline-info text-white rounded-0" href="/index.jsp" <% out.print(SignIn ? "" : "hidden");%>>主页</a>
         <a class="btn btn-outline-info text-white rounded-0"
            href="/signin" <% out.print(SignIn ? "hidden" : "");%>>登陆</a>
