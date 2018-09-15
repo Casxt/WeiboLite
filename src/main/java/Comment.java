@@ -101,34 +101,63 @@ public class Comment extends HttpServlet {
             return;
         }
 
+        Connection conn = null;
+        PreparedStatement insertStmt = null, updateStmt = null;
+        DataSource ds;
         try {
-            DataSource ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
-            assert ds != null;
-            Connection conn = ds.getConnection();
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO public.comment (user_id,weibo_id,comment_id,comment) VALUES (?,?,?,?);");
-            stmt.setLong(1, (long) session.getAttribute("uid"));
-            stmt.setLong(2, jsonReq.WeiboID);
+            ds = (DataSource) new InitialContext().lookup("java:comp/env/jdbc/postgres");
+        } catch (NamingException e) {
+            jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+            JsonTool.response(resp, jsonRes);
+            return;
+        }
+
+        try {
+            conn = ds.getConnection();
+            conn.setAutoCommit(false);
+            insertStmt = conn.prepareStatement("INSERT INTO public.comment (user_id,weibo_id,comment_id,comment) VALUES (?,?,?,?);");
+            insertStmt.setLong(1, (long) session.getAttribute("uid"));
+            insertStmt.setLong(2, jsonReq.WeiboID);
             if (jsonReq.CommentID == 0) {
-                stmt.setNull(3, Types.BIGINT);
+                insertStmt.setNull(3, Types.BIGINT);
             } else {
-                stmt.setLong(3, jsonReq.CommentID);
+                insertStmt.setLong(3, jsonReq.CommentID);
             }
-            stmt.setString(4, jsonReq.Comment);
-            stmt.executeUpdate();
+            insertStmt.setString(4, jsonReq.Comment);
+            insertStmt.executeUpdate();
             //记录评论
-            stmt = conn.prepareStatement("UPDATE public.weibo SET comment_count=comment_count+1 WHERE id=?;");
-            stmt.setLong(1, jsonReq.WeiboID);
-            stmt.executeUpdate();
-            conn.close();
+            updateStmt = conn.prepareStatement("UPDATE public.weibo SET comment_count=comment_count+1 WHERE id=?;");
+            updateStmt.setLong(1, jsonReq.WeiboID);
+            updateStmt.executeUpdate();
+            conn.commit();
             jsonRes = new ResponseField("Success", "评论成功");
         } catch (SQLException e) {
+            try {
+                if (conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
             switch (e.getSQLState()) {
                 default:
                     jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
             }
-        } catch (NamingException e) {
-            e.printStackTrace();
-            jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
+        } finally {
+            try {
+                if (insertStmt != null) {
+                    insertStmt.close();
+                }
+                if (updateStmt != null) {
+                    updateStmt.close();
+                }
+                if (conn != null) {
+                    conn.setAutoCommit(true);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
+            }
         }
         JsonTool.response(resp, jsonRes);
     }

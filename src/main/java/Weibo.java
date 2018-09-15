@@ -98,7 +98,7 @@ public class Weibo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("UTF-8");
-        WeiboRequestField jsonReq = JsonTool.fetch(req, WeiboRequestField.class);
+        WeiboPostField jsonReq = JsonTool.fetch(req, WeiboPostField.class);
         ResponseField jsonRes;
 
         if (!jsonReq.Valid()) {
@@ -185,51 +185,51 @@ public class Weibo extends HttpServlet {
         JsonTool.response(resp, jsonRes);
     }
 
-    class WeiboRequestField {
-        String Content;
-        String[] Imgs;
-        long Forward;
-        private Pattern imgPattern = Pattern.compile("[A-Za-z0-9]{64}");
-
-        boolean Valid() {
-            if (Content.length() > 255 || Content.length() < 5) {
-                return false;
-            }
-            if (Forward < 0) {
-                return false;
-            }
-            for (int i = 0; i < Imgs.length; i++) {
-                if (!imgPattern.matcher(Imgs[i]).matches()) {
-                    return false;
-                }
-                Imgs[i] = Imgs[i].toLowerCase();
-            }
-            return true;
-        }
-    }
-
-    class WeiboResponseField extends ResponseField {
-        WeiboStruct[] WeiboList;
-
-        WeiboResponseField(String state, String msg, WeiboStruct[] weiboList) {
-            super(state, msg);
-            WeiboList = weiboList;
-        }
-
-        WeiboResponseField(String state, String msg, String detail, WeiboStruct[] weiboList) {
-            super(state, msg, detail);
-            WeiboList = weiboList;
-        }
-    }
-
-    class WeiboDeleteField {
-        long WeiboID;
-
-        boolean Valid() {
-            return WeiboID > 0;
-        }
-    }
-
 }
 
+class WeiboPostField {
+    private static Pattern imgPattern = Pattern.compile("[A-Za-z0-9]{64}");
+    String Content;
+    String[] Imgs;
+    long Forward;
+
+    boolean Valid() {
+        if (Content.length() > 255 || Content.length() < 5) {
+            return false;
+        }
+        if (Forward < 0) {
+            return false;
+        }
+        for (int i = 0; i < Imgs.length; i++) {
+            if (!imgPattern.matcher(Imgs[i]).matches()) {
+                return false;
+            }
+            Imgs[i] = Imgs[i].toLowerCase();
+        }
+        return true;
+    }
+}
+
+
+class WeiboDeleteField {
+    long WeiboID;
+
+    boolean Valid() {
+        return WeiboID > 0;
+    }
+}
+
+class WeiboResponseField extends ResponseField {
+    WeiboStruct[] WeiboList;
+
+    WeiboResponseField(String state, String msg, WeiboStruct[] weiboList) {
+        super(state, msg);
+        WeiboList = weiboList;
+    }
+
+    WeiboResponseField(String state, String msg, String detail, WeiboStruct[] weiboList) {
+        super(state, msg, detail);
+        WeiboList = weiboList;
+    }
+}
 

@@ -109,7 +109,7 @@
 
         const Closer = B.OnLoding("disabled", "登陆中...");
 
-        const res = await JsonRequest("POST", "/signin", data);
+        const res = await JsonRequest("PUT", "/signin", data);
         console.log(res);
         Closer();
         if (res.State === "Success") {
