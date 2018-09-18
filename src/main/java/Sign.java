@@ -51,21 +51,26 @@ public class Sign extends HttpServlet {
             stmt.setString(3, salt);
             stmt.setString(4, saltPass);
             stmt.executeUpdate();
+            DbUtils.closeQuietly(stmt);
+            DbUtils.commitAndCloseQuietly(conn);
             jsonRes = new ResponseField("Success", "注册成功");
         } catch (SQLException e) {
-            switch (e.getSQLState()) {
-                case "23505":
-                    jsonRes = new ResponseField("Failed", "用户名重复");
-                    break;
-                default:
-                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("%s", e.getSQLState()));
+            if (e.getSQLState() == null) {
+                jsonRes = new ResponseField("Failed", e.getMessage(), String.format("%s", e.getSQLState()));
+            } else {
+                switch (e.getSQLState()) {
+                    case "23505":
+                        jsonRes = new ResponseField("Failed", "用户名重复");
+                        break;
+                    default:
+                        jsonRes = new ResponseField("Failed", e.getMessage(), String.format("%s", e.getSQLState()));
+                }
             }
+            DbUtils.closeQuietly(stmt);
+            DbUtils.rollbackAndCloseQuietly(conn);
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
-        } finally {
-            DbUtils.closeQuietly(stmt);
-            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -103,10 +108,7 @@ public class Sign extends HttpServlet {
                 jsonRes = new ResponseField("Failed", "用户名不存在");
             }
         } catch (SQLException e) {
-            switch (e.getSQLState()) {
-                default:
-                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("%s", e.getSQLState()));
-            }
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("%s", e.getSQLState()));
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "服务器资源不足", e.getExplanation());

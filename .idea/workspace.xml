@@ -7,11 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0063cb68-edf8-4e9b-8f34-e8a7104295cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/WeiboLite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/WeiboLite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Comment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Sign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Weibo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Weibo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -169,21 +166,21 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="20" />
-          <entry key="java" value="8097" />
+          <entry key="java" value="8136" />
           <entry key="js" value="130" />
           <entry key="jsp" value="4742" />
           <entry key="sql" value="105" />
-          <entry key="txt" value="305" />
+          <entry key="txt" value="338" />
           <entry key="xml" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="20" />
-          <entry key="JAVA" value="8097" />
+          <entry key="JAVA" value="8136" />
           <entry key="JSP" value="4742" />
           <entry key="JavaScript" value="130" />
-          <entry key="PLAIN_TEXT" value="305" />
+          <entry key="PLAIN_TEXT" value="338" />
           <entry key="SQL" value="73" />
           <entry key="Scratch" value="32" />
           <entry key="XML" value="35" />
@@ -196,11 +193,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Sign.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="162" column="19" selection-start-line="162" selection-start-column="11" selection-end-line="162" selection-end-column="19" />
+            <state relative-caret-position="268">
+              <caret line="113" column="74" selection-start-line="113" selection-start-column="74" selection-end-line="113" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -220,8 +217,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Weibo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="104" column="37" lean-forward="true" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
+            <state relative-caret-position="-557">
+              <caret line="197" column="34" selection-start-line="197" selection-start-column="34" selection-end-line="197" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#10703#10704#0" expanded="true" />
@@ -240,28 +237,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
-              <caret line="141" column="39" lean-forward="true" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+            <state relative-caret-position="950">
+              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
               <folding>
-                <element signature="method#doGet#0;class#Comment#0" />
                 <element signature="e#9109#9110#0" expanded="true" />
                 <element signature="e#9146#9147#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Program Files/jdk-10.0.2/lib/src.zip!/java.sql/java/sql/SQLException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="255" column="18" selection-start-line="255" selection-start-column="18" selection-end-line="255" selection-end-column="18" />
-              <folding>
-                <element signature="e#10149#10150#0" expanded="true" />
-                <element signature="e#10182#10183#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -634,9 +617,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Follow.java" />
         <option value="$PROJECT_DIR$/src/main/java/ResetPassword.java" />
         <option value="$PROJECT_DIR$/src/main/java/SearchUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Sign.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Weibo.java" />
         <option value="$PROJECT_DIR$/src/main/java/Comment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Weibo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Sign.java" />
       </list>
     </option>
   </component>
@@ -726,13 +709,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WeiboLite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WeiboLite" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -898,7 +874,7 @@
       <workItem from="1536993539606" duration="35000" />
       <workItem from="1536993722187" duration="6755000" />
       <workItem from="1537163670355" duration="1006000" />
-      <workItem from="1537171215271" duration="5980000" />
+      <workItem from="1537171215271" duration="8257000" />
     </task>
     <task id="LOCAL-00001" summary="添加servlet框架">
       <created>1536486420409</created>
@@ -1103,7 +1079,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536998939565</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="懒处理一处nullpointer">
+      <created>1537240255176</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1537240255176</updated>
+    </task>
+    <task id="LOCAL-00031" summary="解决nullpointer错误">
+      <created>1537241637655</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1537241637655</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1112,7 +1102,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115716000" />
+    <option name="totallyTimeSpent" value="117993000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1127,7 +1117,7 @@
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.20030235" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.20030235" />
       <window_info id="Structure" order="1" sideWeight="0.50199205" side_tool="true" weight="0.2532124" />
       <window_info id="Designer" order="2" />
       <window_info id="Learn" order="3" />
@@ -1137,7 +1127,7 @@
       <window_info anchor="bottom" id="Database Console" order="0" sideWeight="0.49962208" weight="0.32934928" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49962208" weight="0.32934928" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.4988662" visible="true" weight="0.4687915" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4988662" visible="true" weight="0.4687915" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49811035" weight="0.3997344" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1181,8 +1171,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="JsonFetcher and SHA256" />
-    <MESSAGE value="rename" />
     <MESSAGE value="引入数据库" />
     <MESSAGE value="优化数据库" />
     <MESSAGE value="修复autocommit导致的重复commit问题" />
@@ -1206,7 +1194,9 @@
     <MESSAGE value="make innerclass" />
     <MESSAGE value="transection" />
     <MESSAGE value="完善资源关闭" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善资源关闭" />
+    <MESSAGE value="懒处理一处nullpointer" />
+    <MESSAGE value="解决nullpointer错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决nullpointer错误" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1485,16 +1475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Sign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="162" column="19" selection-start-line="162" selection-start-column="11" selection-end-line="162" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/sign.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1513,6 +1493,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="e#9109#9110#0" expanded="true" />
+            <element signature="e#9146#9147#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/WeiboStruct.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-448">
@@ -1522,8 +1513,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Weibo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="104" column="37" lean-forward="true" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
+        <state relative-caret-position="-557">
+          <caret line="197" column="34" selection-start-line="197" selection-start-column="34" selection-end-line="197" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#10703#10704#0" expanded="true" />
@@ -1532,14 +1523,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Comment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Sign.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="141" column="39" lean-forward="true" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+        <state relative-caret-position="268">
+          <caret line="113" column="74" selection-start-line="113" selection-start-column="74" selection-end-line="113" selection-end-column="74" />
           <folding>
-            <element signature="method#doGet#0;class#Comment#0" />
-            <element signature="e#9109#9110#0" expanded="true" />
-            <element signature="e#9146#9147#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
