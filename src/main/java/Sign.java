@@ -102,7 +102,6 @@ public class Sign extends HttpServlet {
             } else {
                 jsonRes = new ResponseField("Failed", "用户名不存在");
             }
-            conn.close();
         } catch (SQLException e) {
             switch (e.getSQLState()) {
                 default:

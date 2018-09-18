@@ -75,16 +75,19 @@ public class Comment extends HttpServlet {
             JsonTool.response(resp, commentListRes);
             return;
         } catch (SQLException e) {
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
+            /*
             switch (e.getSQLState()) {
                 default:
                     jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
             }
+            */
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
         } finally {
-            DbUtils.closeQuietly(stmt);
             DbUtils.closeQuietly(commentList);
+            DbUtils.closeQuietly(stmt);
             DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
@@ -139,22 +142,14 @@ public class Comment extends HttpServlet {
             updateStmt.executeUpdate();
             conn.commit();
             jsonRes = new ResponseField("Success", "评论成功");
-        } catch (SQLException e) {
-            try {
-                if (conn != null) {
-                    conn.rollback();
-                }
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-            switch (e.getSQLState()) {
-                default:
-                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
-            }
-        } finally {
             DbUtils.closeQuietly(insertStmt);
             DbUtils.closeQuietly(updateStmt);
-            DbUtils.closeQuietly(conn);
+            DbUtils.commitAndCloseQuietly(conn);
+        } catch (SQLException e) {
+            DbUtils.closeQuietly(insertStmt);
+            DbUtils.closeQuietly(updateStmt);
+            DbUtils.rollbackAndCloseQuietly(conn);
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -191,18 +186,15 @@ public class Comment extends HttpServlet {
             } else {
                 jsonRes = new ResponseField("Failed", "删除失败");
             }
-            conn.close();
+            DbUtils.closeQuietly(stmt);
+            DbUtils.commitAndCloseQuietly(conn);
         } catch (SQLException e) {
-            switch (e.getSQLState()) {
-                default:
-                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
-            }
+            DbUtils.closeQuietly(stmt);
+            DbUtils.rollbackAndCloseQuietly(conn);
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
-        } finally {
-            DbUtils.closeQuietly(stmt);
-            DbUtils.closeQuietly(conn);
         }
         JsonTool.response(resp, jsonRes);
     }
