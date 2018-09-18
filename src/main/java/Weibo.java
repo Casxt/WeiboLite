@@ -82,12 +82,8 @@ public class Weibo extends HttpServlet {
                         rs = subStmt.executeQuery();
                         rs.next();
                         w.Forward = new WeiboStruct(rs);
-                        rs.close();
                     } catch (SQLException e) {
-                        switch (e.getSQLState()) {
-                            default:
-                                jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
-                        }
+                        jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
                         JsonTool.response(resp, jsonRes);
                         return;
                     } finally {
@@ -200,12 +196,9 @@ public class Weibo extends HttpServlet {
             DbUtils.closeQuietly(stmt);
             DbUtils.commitAndCloseQuietly(conn);
         } catch (SQLException e) {
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
             DbUtils.closeQuietly(stmt);
             DbUtils.rollbackAndCloseQuietly(conn);
-            switch (e.getSQLState()) {
-                default:
-                    jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
-            }
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());

@@ -70,7 +70,6 @@ public class Comment extends HttpServlet {
             while (commentList.next()) {
                 commentStructs.add(new CommentStruct(commentList));
             }
-            conn.close();
             CommentResponseField commentListRes = new CommentResponseField("Success", "获取成功", commentStructs.toArray(new CommentStruct[0]));
             JsonTool.response(resp, commentListRes);
             return;
@@ -146,10 +145,10 @@ public class Comment extends HttpServlet {
             DbUtils.closeQuietly(updateStmt);
             DbUtils.commitAndCloseQuietly(conn);
         } catch (SQLException e) {
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
             DbUtils.closeQuietly(insertStmt);
             DbUtils.closeQuietly(updateStmt);
             DbUtils.rollbackAndCloseQuietly(conn);
-            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
         }
         JsonTool.response(resp, jsonRes);
     }
@@ -189,9 +188,9 @@ public class Comment extends HttpServlet {
             DbUtils.closeQuietly(stmt);
             DbUtils.commitAndCloseQuietly(conn);
         } catch (SQLException e) {
+            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
             DbUtils.closeQuietly(stmt);
             DbUtils.rollbackAndCloseQuietly(conn);
-            jsonRes = new ResponseField("Failed", e.getMessage(), String.format("SQLState:%s", e.getSQLState()));
         } catch (NamingException e) {
             e.printStackTrace();
             jsonRes = new ResponseField("Failed", "Context NamingException", e.getExplanation());
